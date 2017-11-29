@@ -31,22 +31,25 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 [System.CLSCompliant(false)]
 public partial class DateCalculatorParser : Parser {
 	public const int
-		T__0=1, T__1=2, Add=3, Subtract=4, Slash=5, WhiteSpace=6, NewLine=7, Date=8, 
-		Timespan=9, DZIEN=10, MIESIAC=11, ROK=12;
+		T__0=1, T__1=2, Add=3, Subtract=4, Slash=5, Separator=6, WhiteSpace=7, 
+		NewLine=8, Date=9, Timespan=10, DZIEN=11, MIESIAC=12, ROK=13, GODZINY=14, 
+		MINUTY=15, SEKUNDY=16;
 	public const int
-		RULE_dzien = 0, RULE_miesiac = 1, RULE_rok = 2, RULE_datetime = 3, RULE_timespan = 4, 
-		RULE_date = 5, RULE_operation = 6, RULE_expression = 7;
+		RULE_dzien = 0, RULE_miesiac = 1, RULE_rok = 2, RULE_godziny = 3, RULE_minuty = 4, 
+		RULE_sekundy = 5, RULE_timespan = 6, RULE_date = 7, RULE_datetime = 8, 
+		RULE_operation = 9, RULE_expression = 10;
 	public static readonly string[] ruleNames = {
-		"dzien", "miesiac", "rok", "datetime", "timespan", "date", "operation", 
-		"expression"
+		"dzien", "miesiac", "rok", "godziny", "minuty", "sekundy", "timespan", 
+		"date", "datetime", "operation", "expression"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'('", "')'", "'+'", "'-'", "'/'"
+		null, "'('", "')'", "'+'", "'-'", "'/'", "':'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, "Add", "Subtract", "Slash", "WhiteSpace", "NewLine", 
-		"Date", "Timespan", "DZIEN", "MIESIAC", "ROK"
+		null, null, null, "Add", "Subtract", "Slash", "Separator", "WhiteSpace", 
+		"NewLine", "Date", "Timespan", "DZIEN", "MIESIAC", "ROK", "GODZINY", "MINUTY", 
+		"SEKUNDY"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -127,7 +130,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 16; Match(DZIEN);
+			State = 22; Match(DZIEN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -170,7 +173,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 18; Match(MIESIAC);
+			State = 24; Match(MIESIAC);
 			}
 		}
 		catch (RecognitionException re) {
@@ -213,7 +216,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 20; Match(ROK);
+			State = 26; Match(ROK);
 			}
 		}
 		catch (RecognitionException re) {
@@ -227,38 +230,122 @@ public partial class DateCalculatorParser : Parser {
 		return _localctx;
 	}
 
-	public partial class DatetimeContext : ParserRuleContext {
-		public ITerminalNode Date() { return GetToken(DateCalculatorParser.Date, 0); }
-		public ITerminalNode Timespan() { return GetToken(DateCalculatorParser.Timespan, 0); }
-		public DatetimeContext(ParserRuleContext parent, int invokingState)
+	public partial class GodzinyContext : ParserRuleContext {
+		public ITerminalNode GODZINY() { return GetToken(DateCalculatorParser.GODZINY, 0); }
+		public GodzinyContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_datetime; } }
+		public override int RuleIndex { get { return RULE_godziny; } }
 		public override void EnterRule(IParseTreeListener listener) {
 			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
-			if (typedListener != null) typedListener.EnterDatetime(this);
+			if (typedListener != null) typedListener.EnterGodziny(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
-			if (typedListener != null) typedListener.ExitDatetime(this);
+			if (typedListener != null) typedListener.ExitGodziny(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IDateCalculatorVisitor<TResult> typedVisitor = visitor as IDateCalculatorVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDatetime(this);
+			if (typedVisitor != null) return typedVisitor.VisitGodziny(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public DatetimeContext datetime() {
-		DatetimeContext _localctx = new DatetimeContext(_ctx, State);
-		EnterRule(_localctx, 6, RULE_datetime);
+	public GodzinyContext godziny() {
+		GodzinyContext _localctx = new GodzinyContext(_ctx, State);
+		EnterRule(_localctx, 6, RULE_godziny);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 22; Match(Date);
-			State = 23; Match(Timespan);
+			State = 28; Match(GODZINY);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class MinutyContext : ParserRuleContext {
+		public ITerminalNode MINUTY() { return GetToken(DateCalculatorParser.MINUTY, 0); }
+		public MinutyContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_minuty; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
+			if (typedListener != null) typedListener.EnterMinuty(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
+			if (typedListener != null) typedListener.ExitMinuty(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDateCalculatorVisitor<TResult> typedVisitor = visitor as IDateCalculatorVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMinuty(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public MinutyContext minuty() {
+		MinutyContext _localctx = new MinutyContext(_ctx, State);
+		EnterRule(_localctx, 8, RULE_minuty);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 30; Match(MINUTY);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class SekundyContext : ParserRuleContext {
+		public ITerminalNode SEKUNDY() { return GetToken(DateCalculatorParser.SEKUNDY, 0); }
+		public SekundyContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_sekundy; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
+			if (typedListener != null) typedListener.EnterSekundy(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
+			if (typedListener != null) typedListener.ExitSekundy(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDateCalculatorVisitor<TResult> typedVisitor = visitor as IDateCalculatorVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSekundy(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public SekundyContext sekundy() {
+		SekundyContext _localctx = new SekundyContext(_ctx, State);
+		EnterRule(_localctx, 10, RULE_sekundy);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 32; Match(SEKUNDY);
 			}
 		}
 		catch (RecognitionException re) {
@@ -273,7 +360,19 @@ public partial class DateCalculatorParser : Parser {
 	}
 
 	public partial class TimespanContext : ParserRuleContext {
-		public ITerminalNode Timespan() { return GetToken(DateCalculatorParser.Timespan, 0); }
+		public GodzinyContext godziny() {
+			return GetRuleContext<GodzinyContext>(0);
+		}
+		public ITerminalNode[] Separator() { return GetTokens(DateCalculatorParser.Separator); }
+		public ITerminalNode Separator(int i) {
+			return GetToken(DateCalculatorParser.Separator, i);
+		}
+		public MinutyContext minuty() {
+			return GetRuleContext<MinutyContext>(0);
+		}
+		public SekundyContext sekundy() {
+			return GetRuleContext<SekundyContext>(0);
+		}
 		public TimespanContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -297,11 +396,15 @@ public partial class DateCalculatorParser : Parser {
 	[RuleVersion(0)]
 	public TimespanContext timespan() {
 		TimespanContext _localctx = new TimespanContext(_ctx, State);
-		EnterRule(_localctx, 8, RULE_timespan);
+		EnterRule(_localctx, 12, RULE_timespan);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 25; Match(Timespan);
+			State = 34; godziny();
+			State = 35; Match(Separator);
+			State = 36; minuty();
+			State = 37; Match(Separator);
+			State = 38; sekundy();
 			}
 		}
 		catch (RecognitionException re) {
@@ -352,15 +455,64 @@ public partial class DateCalculatorParser : Parser {
 	[RuleVersion(0)]
 	public DateContext date() {
 		DateContext _localctx = new DateContext(_ctx, State);
-		EnterRule(_localctx, 10, RULE_date);
+		EnterRule(_localctx, 14, RULE_date);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 27; dzien();
-			State = 28; Match(Slash);
-			State = 29; miesiac();
-			State = 30; Match(Slash);
-			State = 31; rok();
+			State = 40; dzien();
+			State = 41; Match(Slash);
+			State = 42; miesiac();
+			State = 43; Match(Slash);
+			State = 44; rok();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class DatetimeContext : ParserRuleContext {
+		public DateContext date() {
+			return GetRuleContext<DateContext>(0);
+		}
+		public TimespanContext timespan() {
+			return GetRuleContext<TimespanContext>(0);
+		}
+		public DatetimeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_datetime; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
+			if (typedListener != null) typedListener.EnterDatetime(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
+			if (typedListener != null) typedListener.ExitDatetime(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDateCalculatorVisitor<TResult> typedVisitor = visitor as IDateCalculatorVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDatetime(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public DatetimeContext datetime() {
+		DatetimeContext _localctx = new DatetimeContext(_ctx, State);
+		EnterRule(_localctx, 16, RULE_datetime);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 46; date();
+			State = 47; timespan();
 			}
 		}
 		catch (RecognitionException re) {
@@ -422,59 +574,58 @@ public partial class DateCalculatorParser : Parser {
 	[RuleVersion(0)]
 	public OperationContext operation() {
 		OperationContext _localctx = new OperationContext(_ctx, State);
-		EnterRule(_localctx, 12, RULE_operation);
+		EnterRule(_localctx, 18, RULE_operation);
 		int _la;
 		try {
-			State = 64;
+			State = 80;
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 33; Match(T__0);
-				State = 34; operation();
-				State = 35; Match(T__1);
+				State = 49; Match(T__0);
+				State = 50; operation();
+				State = 51; Match(T__1);
 				}
 				break;
 
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 39;
+				State = 55;
 				_errHandler.Sync(this);
-				switch (_input.La(1)) {
-				case DZIEN:
-					{
-					State = 37; date();
-					}
-					break;
-				case Date:
-					{
-					State = 38; datetime();
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				State = 41; _localctx.op = Match(Subtract);
-				State = 45;
-				_errHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(_input,1,_ctx) ) {
+				switch ( Interpreter.AdaptivePredict(_input,0,_ctx) ) {
 				case 1:
 					{
-					State = 42; date();
+					State = 53; date();
 					}
 					break;
 
 				case 2:
 					{
-					State = 43; datetime();
+					State = 54; datetime();
+					}
+					break;
+				}
+				State = 57; _localctx.op = Match(Subtract);
+				State = 61;
+				_errHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(_input,1,_ctx) ) {
+				case 1:
+					{
+					State = 58; date();
+					}
+					break;
+
+				case 2:
+					{
+					State = 59; datetime();
 					}
 					break;
 
 				case 3:
 					{
-					State = 44; operation();
+					State = 60; operation();
 					}
 					break;
 				}
@@ -484,28 +635,28 @@ public partial class DateCalculatorParser : Parser {
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 50;
+				State = 66;
 				_errHandler.Sync(this);
-				switch (_input.La(1)) {
-				case DZIEN:
+				switch ( Interpreter.AdaptivePredict(_input,2,_ctx) ) {
+				case 1:
 					{
-					State = 47; date();
+					State = 63; date();
 					}
 					break;
-				case Date:
+
+				case 2:
 					{
-					State = 48; datetime();
+					State = 64; datetime();
 					}
 					break;
-				case Timespan:
+
+				case 3:
 					{
-					State = 49; timespan();
+					State = 65; timespan();
 					}
 					break;
-				default:
-					throw new NoViableAltException(this);
 				}
-				State = 52;
+				State = 68;
 				_localctx.op = _input.Lt(1);
 				_la = _input.La(1);
 				if ( !(_la==Add || _la==Subtract) ) {
@@ -518,18 +669,18 @@ public partial class DateCalculatorParser : Parser {
 					_errHandler.ReportMatch(this);
 					Consume();
 				}
-				State = 55;
+				State = 71;
 				_errHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(_input,3,_ctx) ) {
 				case 1:
 					{
-					State = 53; timespan();
+					State = 69; timespan();
 					}
 					break;
 
 				case 2:
 					{
-					State = 54; operation();
+					State = 70; operation();
 					}
 					break;
 				}
@@ -539,26 +690,26 @@ public partial class DateCalculatorParser : Parser {
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 57; timespan();
-				State = 58; _localctx.op = Match(Add);
-				State = 62;
+				State = 73; timespan();
+				State = 74; _localctx.op = Match(Add);
+				State = 78;
 				_errHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(_input,4,_ctx) ) {
 				case 1:
 					{
-					State = 59; date();
+					State = 75; date();
 					}
 					break;
 
 				case 2:
 					{
-					State = 60; datetime();
+					State = 76; datetime();
 					}
 					break;
 
 				case 3:
 					{
-					State = 61; operation();
+					State = 77; operation();
 					}
 					break;
 				}
@@ -613,9 +764,9 @@ public partial class DateCalculatorParser : Parser {
 	[RuleVersion(0)]
 	public ExpressionContext expression() {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, State);
-		EnterRule(_localctx, 14, RULE_expression);
+		EnterRule(_localctx, 20, RULE_expression);
 		try {
-			State = 71;
+			State = 87;
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,6,_ctx) ) {
 			case 1:
@@ -627,28 +778,28 @@ public partial class DateCalculatorParser : Parser {
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 67; date();
+				State = 83; date();
 				}
 				break;
 
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 68; datetime();
+				State = 84; datetime();
 				}
 				break;
 
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 69; timespan();
+				State = 85; timespan();
 				}
 				break;
 
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 70; operation();
+				State = 86; operation();
 				}
 				break;
 			}
@@ -665,33 +816,37 @@ public partial class DateCalculatorParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\xEL\x4\x2\t\x2"+
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\x12\\\x4\x2\t\x2"+
 		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t"+
-		"\t\x3\x2\x3\x2\x3\x3\x3\x3\x3\x4\x3\x4\x3\x5\x3\x5\x3\x5\x3\x6\x3\x6\x3"+
-		"\a\x3\a\x3\a\x3\a\x3\a\x3\a\x3\b\x3\b\x3\b\x3\b\x3\b\x3\b\x5\b*\n\b\x3"+
-		"\b\x3\b\x3\b\x3\b\x5\b\x30\n\b\x3\b\x3\b\x3\b\x5\b\x35\n\b\x3\b\x3\b\x3"+
-		"\b\x5\b:\n\b\x3\b\x3\b\x3\b\x3\b\x3\b\x5\b\x41\n\b\x5\b\x43\n\b\x3\t\x3"+
-		"\t\x3\t\x3\t\x3\t\x5\tJ\n\t\x3\t\x2\x2\x2\n\x2\x2\x4\x2\x6\x2\b\x2\n\x2"+
-		"\f\x2\xE\x2\x10\x2\x2\x3\x3\x2\x5\x6R\x2\x12\x3\x2\x2\x2\x4\x14\x3\x2"+
-		"\x2\x2\x6\x16\x3\x2\x2\x2\b\x18\x3\x2\x2\x2\n\x1B\x3\x2\x2\x2\f\x1D\x3"+
-		"\x2\x2\x2\xE\x42\x3\x2\x2\x2\x10I\x3\x2\x2\x2\x12\x13\a\f\x2\x2\x13\x3"+
-		"\x3\x2\x2\x2\x14\x15\a\r\x2\x2\x15\x5\x3\x2\x2\x2\x16\x17\a\xE\x2\x2\x17"+
-		"\a\x3\x2\x2\x2\x18\x19\a\n\x2\x2\x19\x1A\a\v\x2\x2\x1A\t\x3\x2\x2\x2\x1B"+
-		"\x1C\a\v\x2\x2\x1C\v\x3\x2\x2\x2\x1D\x1E\x5\x2\x2\x2\x1E\x1F\a\a\x2\x2"+
-		"\x1F \x5\x4\x3\x2 !\a\a\x2\x2!\"\x5\x6\x4\x2\"\r\x3\x2\x2\x2#$\a\x3\x2"+
-		"\x2$%\x5\xE\b\x2%&\a\x4\x2\x2&\x43\x3\x2\x2\x2\'*\x5\f\a\x2(*\x5\b\x5"+
-		"\x2)\'\x3\x2\x2\x2)(\x3\x2\x2\x2*+\x3\x2\x2\x2+/\a\x6\x2\x2,\x30\x5\f"+
-		"\a\x2-\x30\x5\b\x5\x2.\x30\x5\xE\b\x2/,\x3\x2\x2\x2/-\x3\x2\x2\x2/.\x3"+
-		"\x2\x2\x2\x30\x43\x3\x2\x2\x2\x31\x35\x5\f\a\x2\x32\x35\x5\b\x5\x2\x33"+
-		"\x35\x5\n\x6\x2\x34\x31\x3\x2\x2\x2\x34\x32\x3\x2\x2\x2\x34\x33\x3\x2"+
-		"\x2\x2\x35\x36\x3\x2\x2\x2\x36\x39\t\x2\x2\x2\x37:\x5\n\x6\x2\x38:\x5"+
-		"\xE\b\x2\x39\x37\x3\x2\x2\x2\x39\x38\x3\x2\x2\x2:\x43\x3\x2\x2\x2;<\x5"+
-		"\n\x6\x2<@\a\x5\x2\x2=\x41\x5\f\a\x2>\x41\x5\b\x5\x2?\x41\x5\xE\b\x2@"+
-		"=\x3\x2\x2\x2@>\x3\x2\x2\x2@?\x3\x2\x2\x2\x41\x43\x3\x2\x2\x2\x42#\x3"+
-		"\x2\x2\x2\x42)\x3\x2\x2\x2\x42\x34\x3\x2\x2\x2\x42;\x3\x2\x2\x2\x43\xF"+
-		"\x3\x2\x2\x2\x44J\x3\x2\x2\x2\x45J\x5\f\a\x2\x46J\x5\b\x5\x2GJ\x5\n\x6"+
-		"\x2HJ\x5\xE\b\x2I\x44\x3\x2\x2\x2I\x45\x3\x2\x2\x2I\x46\x3\x2\x2\x2IG"+
-		"\x3\x2\x2\x2IH\x3\x2\x2\x2J\x11\x3\x2\x2\x2\t)/\x34\x39@\x42I";
+		"\t\x4\n\t\n\x4\v\t\v\x4\f\t\f\x3\x2\x3\x2\x3\x3\x3\x3\x3\x4\x3\x4\x3\x5"+
+		"\x3\x5\x3\x6\x3\x6\x3\a\x3\a\x3\b\x3\b\x3\b\x3\b\x3\b\x3\b\x3\t\x3\t\x3"+
+		"\t\x3\t\x3\t\x3\t\x3\n\x3\n\x3\n\x3\v\x3\v\x3\v\x3\v\x3\v\x3\v\x5\v:\n"+
+		"\v\x3\v\x3\v\x3\v\x3\v\x5\v@\n\v\x3\v\x3\v\x3\v\x5\v\x45\n\v\x3\v\x3\v"+
+		"\x3\v\x5\vJ\n\v\x3\v\x3\v\x3\v\x3\v\x3\v\x5\vQ\n\v\x5\vS\n\v\x3\f\x3\f"+
+		"\x3\f\x3\f\x3\f\x5\fZ\n\f\x3\f\x2\x2\x2\r\x2\x2\x4\x2\x6\x2\b\x2\n\x2"+
+		"\f\x2\xE\x2\x10\x2\x12\x2\x14\x2\x16\x2\x2\x3\x3\x2\x5\x6_\x2\x18\x3\x2"+
+		"\x2\x2\x4\x1A\x3\x2\x2\x2\x6\x1C\x3\x2\x2\x2\b\x1E\x3\x2\x2\x2\n \x3\x2"+
+		"\x2\x2\f\"\x3\x2\x2\x2\xE$\x3\x2\x2\x2\x10*\x3\x2\x2\x2\x12\x30\x3\x2"+
+		"\x2\x2\x14R\x3\x2\x2\x2\x16Y\x3\x2\x2\x2\x18\x19\a\r\x2\x2\x19\x3\x3\x2"+
+		"\x2\x2\x1A\x1B\a\xE\x2\x2\x1B\x5\x3\x2\x2\x2\x1C\x1D\a\xF\x2\x2\x1D\a"+
+		"\x3\x2\x2\x2\x1E\x1F\a\x10\x2\x2\x1F\t\x3\x2\x2\x2 !\a\x11\x2\x2!\v\x3"+
+		"\x2\x2\x2\"#\a\x12\x2\x2#\r\x3\x2\x2\x2$%\x5\b\x5\x2%&\a\b\x2\x2&\'\x5"+
+		"\n\x6\x2\'(\a\b\x2\x2()\x5\f\a\x2)\xF\x3\x2\x2\x2*+\x5\x2\x2\x2+,\a\a"+
+		"\x2\x2,-\x5\x4\x3\x2-.\a\a\x2\x2./\x5\x6\x4\x2/\x11\x3\x2\x2\x2\x30\x31"+
+		"\x5\x10\t\x2\x31\x32\x5\xE\b\x2\x32\x13\x3\x2\x2\x2\x33\x34\a\x3\x2\x2"+
+		"\x34\x35\x5\x14\v\x2\x35\x36\a\x4\x2\x2\x36S\x3\x2\x2\x2\x37:\x5\x10\t"+
+		"\x2\x38:\x5\x12\n\x2\x39\x37\x3\x2\x2\x2\x39\x38\x3\x2\x2\x2:;\x3\x2\x2"+
+		"\x2;?\a\x6\x2\x2<@\x5\x10\t\x2=@\x5\x12\n\x2>@\x5\x14\v\x2?<\x3\x2\x2"+
+		"\x2?=\x3\x2\x2\x2?>\x3\x2\x2\x2@S\x3\x2\x2\x2\x41\x45\x5\x10\t\x2\x42"+
+		"\x45\x5\x12\n\x2\x43\x45\x5\xE\b\x2\x44\x41\x3\x2\x2\x2\x44\x42\x3\x2"+
+		"\x2\x2\x44\x43\x3\x2\x2\x2\x45\x46\x3\x2\x2\x2\x46I\t\x2\x2\x2GJ\x5\xE"+
+		"\b\x2HJ\x5\x14\v\x2IG\x3\x2\x2\x2IH\x3\x2\x2\x2JS\x3\x2\x2\x2KL\x5\xE"+
+		"\b\x2LP\a\x5\x2\x2MQ\x5\x10\t\x2NQ\x5\x12\n\x2OQ\x5\x14\v\x2PM\x3\x2\x2"+
+		"\x2PN\x3\x2\x2\x2PO\x3\x2\x2\x2QS\x3\x2\x2\x2R\x33\x3\x2\x2\x2R\x39\x3"+
+		"\x2\x2\x2R\x44\x3\x2\x2\x2RK\x3\x2\x2\x2S\x15\x3\x2\x2\x2TZ\x3\x2\x2\x2"+
+		"UZ\x5\x10\t\x2VZ\x5\x12\n\x2WZ\x5\xE\b\x2XZ\x5\x14\v\x2YT\x3\x2\x2\x2"+
+		"YU\x3\x2\x2\x2YV\x3\x2\x2\x2YW\x3\x2\x2\x2YX\x3\x2\x2\x2Z\x17\x3\x2\x2"+
+		"\x2\t\x39?\x44IPRY";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

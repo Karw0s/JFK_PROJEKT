@@ -10,6 +10,7 @@ fragment FRACTION       : DOT [0-9]* '1'..'9';
 Add           : '+';
 Subtract      : '-';
 Slash		  : '/';
+Separator	  : ':';
 
 WhiteSpace    : ( SINGLE_SPACE | TABULATION )+ -> skip;
 NewLine       : ( CARRAIGE_RETURN | LINE_FEED )+ -> skip;
@@ -34,21 +35,34 @@ fragment MIESIAC	: 'STY'
 					;
 
 fragment ROK : [0-9][0-9][0-9][0-9];
-				
+
+fragment GODZINY : '0'[0-9]
+				 | '1'[0-9]
+				 | '2'[0-4]
+				 ;
+
+fragment MINUTY : [0-5][0-9];
+
+fragment SEKUNDY : [0-5][0-9];
+
 Date	: DZIEN '-' MIESIAC '-' ROK;
 
 Timespan	: '0'[0-9]':'[0-5][0-9]':'[0-5][0-9]
-		| '1'[0-9]':'[0-5][0-9]':'[0-5][0-9]
-		| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
-		;
+			| '1'[0-9]':'[0-5][0-9]':'[0-5][0-9]
+			| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
+			;
 
 dzien	: DZIEN;
 miesiac : MIESIAC;
 rok		: ROK;
+godziny : GODZINY;
+minuty	: MINUTY;
+sekundy	: SEKUNDY;
 
-datetime	: Date Timespan;
-timespan 	: Timespan;
+
+timespan 	: godziny Separator minuty Separator sekundy;
 date 		: dzien Slash miesiac Slash rok;
+datetime	: date timespan;
 
 
 operation :'(' operation ')'

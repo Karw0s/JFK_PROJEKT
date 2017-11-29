@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Date.cs" />
+    <Compile Include="DateTime.cs" />
     <Compile Include="obj\Debug\DateCalculatorBaseListener.cs" />
     <Compile Include="obj\Debug\DateCalculatorBaseVisitor.cs" />
     <Compile Include="obj\Debug\DateCalculatorLexer.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Time.cs" />
+    <Compile Include="TimeSpan.cs" />
     <Compile Include="TreeEvaluationVisitor.cs" />
     <Compile Include="TreeVisitor.cs" />
   </ItemGroup>

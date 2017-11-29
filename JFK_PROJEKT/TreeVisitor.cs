@@ -9,7 +9,26 @@ namespace JFK_PROJEKT
 {
     public class TreeVisitor : DateCalculatorBaseVisitor<object>
     {
-        public List<Date> Daty = new List<Date>();
+        public List<TimeSpan> timespanList = new List<TimeSpan>();
+        public List<Date> dateList = new List<Date>();
+        public List<DateTime> datetimeList = new List<DateTime>();
+
+        public override object VisitTimespan(DateCalculatorParser.TimespanContext context)
+        {
+            DateCalculatorParser.GodzinyContext godzina = context.godziny();
+            DateCalculatorParser.MinutyContext minta = context.minuty();
+            DateCalculatorParser.SekundyContext sekunda = context.sekundy();
+
+            TimeSpan tmp = new TimeSpan() {
+                hour = Convert.ToInt32(godzina.GetText()),
+                minute = Convert.ToInt32(minta.GetText()),
+                second = Convert.ToInt32(sekunda.GetText())
+            };
+
+            timespanList.Add(tmp);
+
+            return tmp;
+        }
 
         public override object VisitDate(DateCalculatorParser.DateContext context)
         {
@@ -23,9 +42,21 @@ namespace JFK_PROJEKT
                 yer = Convert.ToInt32(rok.GetText())
             };
 
-            Daty.Add(tmp);
+            dateList.Add(tmp);
 
             return tmp;
         }
+
+        public override object VisitDatetime(DateCalculatorParser.DatetimeContext context)
+        {
+            //TODO 
+            return base.VisitDatetime(context);
+        }
+
+        public override object VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
+        {
+            return base.VisitOperation(context);
+        }
+
     }
 }

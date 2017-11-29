@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JFK_PROJEKT
 {
-    class  Time
+    public class  Time
     {
         private int day = 0;
         private String month ="" ;

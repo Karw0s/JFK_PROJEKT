@@ -65,15 +65,37 @@ public interface IDateCalculatorListener : IParseTreeListener {
 	void ExitRok([NotNull] DateCalculatorParser.RokContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.godziny"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
+	void EnterGodziny([NotNull] DateCalculatorParser.GodzinyContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.godziny"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
+	void ExitGodziny([NotNull] DateCalculatorParser.GodzinyContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.minuty"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMinuty([NotNull] DateCalculatorParser.MinutyContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.minuty"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMinuty([NotNull] DateCalculatorParser.MinutyContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.sekundy"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterSekundy([NotNull] DateCalculatorParser.SekundyContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.sekundy"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitSekundy([NotNull] DateCalculatorParser.SekundyContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
@@ -96,6 +118,17 @@ public interface IDateCalculatorListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDate([NotNull] DateCalculatorParser.DateContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.operation"/>.

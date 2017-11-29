@@ -54,11 +54,25 @@ public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitRok([NotNull] DateCalculatorParser.RokContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.godziny"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
+	Result VisitGodziny([NotNull] DateCalculatorParser.GodzinyContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.minuty"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMinuty([NotNull] DateCalculatorParser.MinutyContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.sekundy"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitSekundy([NotNull] DateCalculatorParser.SekundyContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
@@ -73,6 +87,13 @@ public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDate([NotNull] DateCalculatorParser.DateContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
