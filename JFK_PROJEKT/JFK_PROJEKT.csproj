@@ -91,8 +91,6 @@
   <ItemGroup>
     <Content Include="obj\Debug\JFK_PROJEKT.csproj.Antlr4GeneratedCodeFileListAbsolute.txt" />
     <Content Include="obj\Debug\JFK_PROJEKT.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\JFK_PROJEKT.exe" />
-    <Content Include="obj\Debug\JFK_PROJEKT.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

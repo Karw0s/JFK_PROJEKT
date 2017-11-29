@@ -61,7 +61,7 @@ sekundy	: SEKUNDY;
 
 
 timespan 	: godziny Separator minuty Separator sekundy;
-date 		: dzien Slash miesiac Slash rok;
+date 		: dzien '-' miesiac '-' rok;
 datetime	: date timespan;
 
 
