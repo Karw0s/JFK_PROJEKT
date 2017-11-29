@@ -45,17 +45,17 @@ dates	: date
 		| datetime
 		;
 
-operation :
-			( date | datetime | timespan ) 
+operation :'(' operation ')'
+		  | ( date | datetime ) Subtract ( date | datetime | operation )
+		  | ( date | datetime | timespan ) 
 			op=( Add | Subtract )
             ( timespan | operation )
-		  | ( date | datetime ) Subtract ( date | datetime | operation )
 		  | timespan Add (date | datetime | operation)
-		  | '(' operation ')'
           ;
 
-expression: operation
+expression:
           | date
 		  | datetime 
 		  | timespan 
+		  | operation
           ;

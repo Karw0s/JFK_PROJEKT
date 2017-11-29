@@ -12,3 +12,4 @@ C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bi
 C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bin\Debug\Antlr4.Runtime.xml
 C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\JFK_PROJEKT.exe
 C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\JFK_PROJEKT.pdb
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\JFK_PROJEKT.csprojResolveAssemblyReference.cache

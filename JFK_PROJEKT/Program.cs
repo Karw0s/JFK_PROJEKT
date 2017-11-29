@@ -27,7 +27,7 @@ namespace JFK_PROJEKT
                 var errors = parser.NumberOfSyntaxErrors;
 
                 Console.WriteLine($"Number of syntax errors: {errors}");
-                Console.WriteLine(tree.ToStringTree()); // Token IDs
+                //Console.WriteLine(tree.ToStringTree()); // Token IDs
                 Console.WriteLine(tree.ToStringTree(parser));
 
                 //DateCalculatorParser.ExpressionContext chatContext = parser.expression();

@@ -290,6 +290,10 @@ public partial class DateCalculatorParser : Parser {
 
 	public partial class OperationContext : ParserRuleContext {
 		public IToken op;
+		public OperationContext operation() {
+			return GetRuleContext<OperationContext>(0);
+		}
+		public ITerminalNode Subtract() { return GetToken(DateCalculatorParser.Subtract, 0); }
 		public DateContext[] date() {
 			return GetRuleContexts<DateContext>();
 		}
@@ -309,10 +313,6 @@ public partial class DateCalculatorParser : Parser {
 			return GetRuleContext<TimespanContext>(i);
 		}
 		public ITerminalNode Add() { return GetToken(DateCalculatorParser.Add, 0); }
-		public ITerminalNode Subtract() { return GetToken(DateCalculatorParser.Subtract, 0); }
-		public OperationContext operation() {
-			return GetRuleContext<OperationContext>(0);
-		}
 		public OperationContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -345,28 +345,80 @@ public partial class DateCalculatorParser : Parser {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 26;
+				State = 23; Match(T__0);
+				State = 24; operation();
+				State = 25; Match(T__1);
+				}
+				break;
+
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 29;
 				_errHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(_input,1,_ctx) ) {
 				case 1:
 					{
-					State = 23; date();
+					State = 27; date();
 					}
 					break;
 
 				case 2:
 					{
-					State = 24; datetime();
+					State = 28; datetime();
+					}
+					break;
+				}
+				State = 31; Match(Subtract);
+				State = 35;
+				_errHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(_input,2,_ctx) ) {
+				case 1:
+					{
+					State = 32; date();
+					}
+					break;
+
+				case 2:
+					{
+					State = 33; datetime();
 					}
 					break;
 
 				case 3:
 					{
-					State = 25; timespan();
+					State = 34; operation();
 					}
 					break;
 				}
-				State = 28;
+				}
+				break;
+
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 40;
+				_errHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(_input,3,_ctx) ) {
+				case 1:
+					{
+					State = 37; date();
+					}
+					break;
+
+				case 2:
+					{
+					State = 38; datetime();
+					}
+					break;
+
+				case 3:
+					{
+					State = 39; timespan();
+					}
+					break;
+				}
+				State = 42;
 				_localctx.op = _input.Lt(1);
 				_la = _input.La(1);
 				if ( !(_la==Add || _la==Subtract) ) {
@@ -379,90 +431,18 @@ public partial class DateCalculatorParser : Parser {
 					_errHandler.ReportMatch(this);
 					Consume();
 				}
-				State = 31;
-				_errHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(_input,2,_ctx) ) {
-				case 1:
-					{
-					State = 29; timespan();
-					}
-					break;
-
-				case 2:
-					{
-					State = 30; operation();
-					}
-					break;
-				}
-				}
-				break;
-
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 35;
-				_errHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(_input,3,_ctx) ) {
-				case 1:
-					{
-					State = 33; date();
-					}
-					break;
-
-				case 2:
-					{
-					State = 34; datetime();
-					}
-					break;
-				}
-				State = 37; Match(Subtract);
-				State = 41;
+				State = 45;
 				_errHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(_input,4,_ctx) ) {
 				case 1:
 					{
-					State = 38; date();
+					State = 43; timespan();
 					}
 					break;
 
 				case 2:
 					{
-					State = 39; datetime();
-					}
-					break;
-
-				case 3:
-					{
-					State = 40; operation();
-					}
-					break;
-				}
-				}
-				break;
-
-			case 3:
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 43; timespan();
-				State = 44; Match(Add);
-				State = 48;
-				_errHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(_input,5,_ctx) ) {
-				case 1:
-					{
-					State = 45; date();
-					}
-					break;
-
-				case 2:
-					{
-					State = 46; datetime();
-					}
-					break;
-
-				case 3:
-					{
-					State = 47; operation();
+					State = 44; operation();
 					}
 					break;
 				}
@@ -472,9 +452,29 @@ public partial class DateCalculatorParser : Parser {
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 50; Match(T__0);
-				State = 51; operation();
-				State = 52; Match(T__1);
+				State = 47; timespan();
+				State = 48; Match(Add);
+				State = 52;
+				_errHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(_input,5,_ctx) ) {
+				case 1:
+					{
+					State = 49; date();
+					}
+					break;
+
+				case 2:
+					{
+					State = 50; datetime();
+					}
+					break;
+
+				case 3:
+					{
+					State = 51; operation();
+					}
+					break;
+				}
 				}
 				break;
 			}
@@ -491,9 +491,6 @@ public partial class DateCalculatorParser : Parser {
 	}
 
 	public partial class ExpressionContext : ParserRuleContext {
-		public OperationContext operation() {
-			return GetRuleContext<OperationContext>(0);
-		}
 		public DateContext date() {
 			return GetRuleContext<DateContext>(0);
 		}
@@ -502,6 +499,9 @@ public partial class DateCalculatorParser : Parser {
 		}
 		public TimespanContext timespan() {
 			return GetRuleContext<TimespanContext>(0);
+		}
+		public OperationContext operation() {
+			return GetRuleContext<OperationContext>(0);
 		}
 		public ExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -528,13 +528,12 @@ public partial class DateCalculatorParser : Parser {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, State);
 		EnterRule(_localctx, 10, RULE_expression);
 		try {
-			State = 60;
+			State = 61;
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 56; operation();
 				}
 				break;
 
@@ -558,6 +557,13 @@ public partial class DateCalculatorParser : Parser {
 				State = 59; timespan();
 				}
 				break;
+
+			case 5:
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 60; operation();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -572,31 +578,32 @@ public partial class DateCalculatorParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\n\x41\x4\x2\t\x2"+
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\n\x42\x4\x2\t\x2"+
 		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x3\x2\x3\x2\x3\x2"+
 		"\x3\x3\x3\x3\x3\x4\x3\x4\x3\x5\x3\x5\x5\x5\x18\n\x5\x3\x6\x3\x6\x3\x6"+
-		"\x5\x6\x1D\n\x6\x3\x6\x3\x6\x3\x6\x5\x6\"\n\x6\x3\x6\x3\x6\x5\x6&\n\x6"+
-		"\x3\x6\x3\x6\x3\x6\x3\x6\x5\x6,\n\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x5"+
-		"\x6\x33\n\x6\x3\x6\x3\x6\x3\x6\x3\x6\x5\x6\x39\n\x6\x3\a\x3\a\x3\a\x3"+
-		"\a\x5\a?\n\a\x3\a\x2\x2\x2\b\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\x2\x3\x3"+
-		"\x2\x5\x6I\x2\xE\x3\x2\x2\x2\x4\x11\x3\x2\x2\x2\x6\x13\x3\x2\x2\x2\b\x17"+
-		"\x3\x2\x2\x2\n\x38\x3\x2\x2\x2\f>\x3\x2\x2\x2\xE\xF\a\t\x2\x2\xF\x10\a"+
-		"\n\x2\x2\x10\x3\x3\x2\x2\x2\x11\x12\a\n\x2\x2\x12\x5\x3\x2\x2\x2\x13\x14"+
-		"\a\t\x2\x2\x14\a\x3\x2\x2\x2\x15\x18\x5\x6\x4\x2\x16\x18\x5\x2\x2\x2\x17"+
-		"\x15\x3\x2\x2\x2\x17\x16\x3\x2\x2\x2\x18\t\x3\x2\x2\x2\x19\x1D\x5\x6\x4"+
-		"\x2\x1A\x1D\x5\x2\x2\x2\x1B\x1D\x5\x4\x3\x2\x1C\x19\x3\x2\x2\x2\x1C\x1A"+
-		"\x3\x2\x2\x2\x1C\x1B\x3\x2\x2\x2\x1D\x1E\x3\x2\x2\x2\x1E!\t\x2\x2\x2\x1F"+
-		"\"\x5\x4\x3\x2 \"\x5\n\x6\x2!\x1F\x3\x2\x2\x2! \x3\x2\x2\x2\"\x39\x3\x2"+
-		"\x2\x2#&\x5\x6\x4\x2$&\x5\x2\x2\x2%#\x3\x2\x2\x2%$\x3\x2\x2\x2&\'\x3\x2"+
-		"\x2\x2\'+\a\x6\x2\x2(,\x5\x6\x4\x2),\x5\x2\x2\x2*,\x5\n\x6\x2+(\x3\x2"+
-		"\x2\x2+)\x3\x2\x2\x2+*\x3\x2\x2\x2,\x39\x3\x2\x2\x2-.\x5\x4\x3\x2.\x32"+
-		"\a\x5\x2\x2/\x33\x5\x6\x4\x2\x30\x33\x5\x2\x2\x2\x31\x33\x5\n\x6\x2\x32"+
-		"/\x3\x2\x2\x2\x32\x30\x3\x2\x2\x2\x32\x31\x3\x2\x2\x2\x33\x39\x3\x2\x2"+
-		"\x2\x34\x35\a\x3\x2\x2\x35\x36\x5\n\x6\x2\x36\x37\a\x4\x2\x2\x37\x39\x3"+
-		"\x2\x2\x2\x38\x1C\x3\x2\x2\x2\x38%\x3\x2\x2\x2\x38-\x3\x2\x2\x2\x38\x34"+
-		"\x3\x2\x2\x2\x39\v\x3\x2\x2\x2:?\x5\n\x6\x2;?\x5\x6\x4\x2<?\x5\x2\x2\x2"+
-		"=?\x5\x4\x3\x2>:\x3\x2\x2\x2>;\x3\x2\x2\x2><\x3\x2\x2\x2>=\x3\x2\x2\x2"+
-		"?\r\x3\x2\x2\x2\n\x17\x1C!%+\x32\x38>";
+		"\x3\x6\x3\x6\x3\x6\x5\x6 \n\x6\x3\x6\x3\x6\x3\x6\x3\x6\x5\x6&\n\x6\x3"+
+		"\x6\x3\x6\x3\x6\x5\x6+\n\x6\x3\x6\x3\x6\x3\x6\x5\x6\x30\n\x6\x3\x6\x3"+
+		"\x6\x3\x6\x3\x6\x3\x6\x5\x6\x37\n\x6\x5\x6\x39\n\x6\x3\a\x3\a\x3\a\x3"+
+		"\a\x3\a\x5\a@\n\a\x3\a\x2\x2\x2\b\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\x2"+
+		"\x3\x3\x2\x5\x6K\x2\xE\x3\x2\x2\x2\x4\x11\x3\x2\x2\x2\x6\x13\x3\x2\x2"+
+		"\x2\b\x17\x3\x2\x2\x2\n\x38\x3\x2\x2\x2\f?\x3\x2\x2\x2\xE\xF\a\t\x2\x2"+
+		"\xF\x10\a\n\x2\x2\x10\x3\x3\x2\x2\x2\x11\x12\a\n\x2\x2\x12\x5\x3\x2\x2"+
+		"\x2\x13\x14\a\t\x2\x2\x14\a\x3\x2\x2\x2\x15\x18\x5\x6\x4\x2\x16\x18\x5"+
+		"\x2\x2\x2\x17\x15\x3\x2\x2\x2\x17\x16\x3\x2\x2\x2\x18\t\x3\x2\x2\x2\x19"+
+		"\x1A\a\x3\x2\x2\x1A\x1B\x5\n\x6\x2\x1B\x1C\a\x4\x2\x2\x1C\x39\x3\x2\x2"+
+		"\x2\x1D \x5\x6\x4\x2\x1E \x5\x2\x2\x2\x1F\x1D\x3\x2\x2\x2\x1F\x1E\x3\x2"+
+		"\x2\x2 !\x3\x2\x2\x2!%\a\x6\x2\x2\"&\x5\x6\x4\x2#&\x5\x2\x2\x2$&\x5\n"+
+		"\x6\x2%\"\x3\x2\x2\x2%#\x3\x2\x2\x2%$\x3\x2\x2\x2&\x39\x3\x2\x2\x2\'+"+
+		"\x5\x6\x4\x2(+\x5\x2\x2\x2)+\x5\x4\x3\x2*\'\x3\x2\x2\x2*(\x3\x2\x2\x2"+
+		"*)\x3\x2\x2\x2+,\x3\x2\x2\x2,/\t\x2\x2\x2-\x30\x5\x4\x3\x2.\x30\x5\n\x6"+
+		"\x2/-\x3\x2\x2\x2/.\x3\x2\x2\x2\x30\x39\x3\x2\x2\x2\x31\x32\x5\x4\x3\x2"+
+		"\x32\x36\a\x5\x2\x2\x33\x37\x5\x6\x4\x2\x34\x37\x5\x2\x2\x2\x35\x37\x5"+
+		"\n\x6\x2\x36\x33\x3\x2\x2\x2\x36\x34\x3\x2\x2\x2\x36\x35\x3\x2\x2\x2\x37"+
+		"\x39\x3\x2\x2\x2\x38\x19\x3\x2\x2\x2\x38\x1F\x3\x2\x2\x2\x38*\x3\x2\x2"+
+		"\x2\x38\x31\x3\x2\x2\x2\x39\v\x3\x2\x2\x2:@\x3\x2\x2\x2;@\x5\x6\x4\x2"+
+		"<@\x5\x2\x2\x2=@\x5\x4\x3\x2>@\x5\n\x6\x2?:\x3\x2\x2\x2?;\x3\x2\x2\x2"+
+		"?<\x3\x2\x2\x2?=\x3\x2\x2\x2?>\x3\x2\x2\x2@\r\x3\x2\x2\x2\n\x17\x1F%*"+
+		"/\x36\x38?";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }
