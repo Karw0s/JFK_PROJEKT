@@ -9,9 +9,15 @@ fragment FRACTION       : DOT [0-9]* '1'..'9';
 
 Add           : '+';
 Subtract      : '-';
+Slash		  : '/';
 
 WhiteSpace    : ( SINGLE_SPACE | TABULATION )+ -> skip;
 NewLine       : ( CARRAIGE_RETURN | LINE_FEED )+ -> skip;
+
+fragment DZIEN	: '0'[1-9]
+				| [1-2][0-9]
+				| '3'[0-1]
+				;
 
 fragment MIESIAC	: 'STY'
 					| 'LUT'
@@ -27,30 +33,30 @@ fragment MIESIAC	: 'STY'
 					| 'GRU'
 					;
 
-Date	: '0'[1-9] '-' MIESIAC '-' [0-9][0-9][0-9][0-9]
-		| [1-2][0-9] '-' MIESIAC '-' [0-9][0-9][0-9][0-9]
-		| '3'[0-1] '-' MIESIAC '-' [0-9][0-9][0-9][0-9]
-		;
+fragment ROK : [0-9][0-9][0-9][0-9];
+				
+Date	: DZIEN '-' MIESIAC '-' ROK;
 
 Timespan	: '0'[0-9]':'[0-5][0-9]':'[0-5][0-9]
 		| '1'[0-9]':'[0-5][0-9]':'[0-5][0-9]
 		| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
 		;
 
+dzien	: DZIEN;
+miesiac : MIESIAC;
+rok		: ROK;
+
 datetime	: Date Timespan;
 timespan 	: Timespan;
-date 		: Date;
+date 		: dzien Slash miesiac Slash rok;
 
-dates	: date
-		| datetime
-		;
 
 operation :'(' operation ')'
-		  | ( date | datetime ) Subtract ( date | datetime | operation )
+		  | ( date | datetime ) op=Subtract ( date | datetime | operation )
 		  | ( date | datetime | timespan ) 
 			op=( Add | Subtract )
             ( timespan | operation )
-		  | timespan Add (date | datetime | operation)
+		  | timespan op=Add (date | datetime | operation)
           ;
 
 expression:

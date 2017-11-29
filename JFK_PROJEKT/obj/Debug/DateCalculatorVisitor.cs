@@ -33,6 +33,27 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDzien([NotNull] DateCalculatorParser.DzienContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMiesiac([NotNull] DateCalculatorParser.MiesiacContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.rok"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRok([NotNull] DateCalculatorParser.RokContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -52,13 +73,6 @@ public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDate([NotNull] DateCalculatorParser.DateContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.dates"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitDates([NotNull] DateCalculatorParser.DatesContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.operation"/>.

@@ -20,10 +20,10 @@ namespace JFK_PROJEKT
             switch (context.op.Type)
             {
                 case DateCalculatorParser.Add:
-                    operand = (a, b) => a + b;
+                    operand = (a, b) => Time.dodaj( a, b );
                     break;
                 case DateCalculatorParser.Subtract:
-                    operand = (a, b) => a - b;
+                    operand = (a, b) => Time.odejmij( a, b );
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

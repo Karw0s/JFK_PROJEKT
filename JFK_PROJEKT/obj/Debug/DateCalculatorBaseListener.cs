@@ -36,6 +36,45 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDzien([NotNull] DateCalculatorParser.DzienContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDzien([NotNull] DateCalculatorParser.DzienContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterMiesiac([NotNull] DateCalculatorParser.MiesiacContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitMiesiac([NotNull] DateCalculatorParser.MiesiacContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.rok"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterRok([NotNull] DateCalculatorParser.RokContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.rok"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitRok([NotNull] DateCalculatorParser.RokContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -73,19 +112,6 @@ public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDate([NotNull] DateCalculatorParser.DateContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.dates"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDates([NotNull] DateCalculatorParser.DatesContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.dates"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDates([NotNull] DateCalculatorParser.DatesContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.operation"/>.

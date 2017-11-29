@@ -2,12 +2,15 @@
 using Antlr4.Runtime.Tree;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace JFK_PROJEKT
 {
+    
+
     class Program
     {
         static void Main(string[] args)
@@ -30,10 +33,17 @@ namespace JFK_PROJEKT
                 //Console.WriteLine(tree.ToStringTree()); // Token IDs
                 Console.WriteLine(tree.ToStringTree(parser));
 
+                if (0 < errors)
+                    return;
+
+                var visitor = new TreeEvaluationVisitor();
+                Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
+
+
                 //DateCalculatorParser.ExpressionContext chatContext = parser.expression();
 
 
-                
+
                 //SpeakVisitor visitor = new SpeakVisitor();
                 //visitor.Visit(chatContext);
 

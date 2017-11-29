@@ -32,6 +32,39 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IDateCalculatorListener : IParseTreeListener {
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDzien([NotNull] DateCalculatorParser.DzienContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDzien([NotNull] DateCalculatorParser.DzienContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMiesiac([NotNull] DateCalculatorParser.MiesiacContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMiesiac([NotNull] DateCalculatorParser.MiesiacContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.rok"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRok([NotNull] DateCalculatorParser.RokContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.rok"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRok([NotNull] DateCalculatorParser.RokContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -63,17 +96,6 @@ public interface IDateCalculatorListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDate([NotNull] DateCalculatorParser.DateContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.dates"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterDates([NotNull] DateCalculatorParser.DatesContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.dates"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitDates([NotNull] DateCalculatorParser.DatesContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
