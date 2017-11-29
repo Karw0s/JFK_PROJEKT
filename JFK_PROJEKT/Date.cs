@@ -10,6 +10,6 @@ namespace JFK_PROJEKT
     {
         public int day { get; set; }
         public String month { get; set; }
-        public int yer { get; set; }
+        public int year { get; set; }
     }
 }

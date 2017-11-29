@@ -36,9 +36,13 @@ namespace JFK_PROJEKT
                 if (0 < errors)
                     return;
 
-                var visitor = new TreeEvaluationVisitor();
-                Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
+                var visitor = new TreeVisitor();
+                //Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
 
+                foreach (var line in visitor.dateList)
+                {
+                    Console.WriteLine("{0}-{1}-", line.day, line.month,line.year);
+                }
 
                 //DateCalculatorParser.ExpressionContext chatContext = parser.expression();
 

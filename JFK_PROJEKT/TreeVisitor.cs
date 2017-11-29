@@ -39,7 +39,7 @@ namespace JFK_PROJEKT
             Date tmp = new Date() {
                 day = Convert.ToInt32(dzien.GetText()),
                 month = miesiac.GetText(),
-                yer = Convert.ToInt32(rok.GetText())
+                year = Convert.ToInt32(rok.GetText())
             };
 
             dateList.Add(tmp);
@@ -53,10 +53,29 @@ namespace JFK_PROJEKT
             return base.VisitDatetime(context);
         }
 
-        public override object VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
-        {
-            return base.VisitOperation(context);
-        }
+        //public override object VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
+        //{
+        //    if (null == context.op) // '(' operation ')'
+        //        return Visit(context.operation());
+        //    if (context.GetChild(1).GetType() == typeof(TimeSpan))
+        //    {
+        //        Func<TimeSpan, TimeSpan, TimeSpan> operand;
+        //        switch (context.op.Type)
+        //        {
+        //            case DateCalculatorParser.Add:
+        //                operand = (a, b) => TimeSpan.dodaj(a, b);
+        //                break;
+        //            case DateCalculatorParser.Subtract:
+        //                operand = (a, b) => TimeSpan.odejmij(a, b);
+        //                break;
+        //            default:
+        //                throw new ArgumentOutOfRangeException();
+        //        }
+
+        //        return operand(Visit(context.GetChild(1)), Visit(context.GetChild(2)));
+        //    }
+        //    return 0;
+        //}
 
     }
 }
