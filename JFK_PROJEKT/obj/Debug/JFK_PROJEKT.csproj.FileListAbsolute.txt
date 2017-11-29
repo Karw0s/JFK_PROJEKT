@@ -1,0 +1,14 @@
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorLexer.cs
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorParser.cs
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorListener.cs
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorBaseListener.cs
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorVisitor.cs
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorBaseVisitor.cs
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\JFK_PROJEKT.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bin\Debug\JFK_PROJEKT.exe.config
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bin\Debug\JFK_PROJEKT.exe
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bin\Debug\JFK_PROJEKT.pdb
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bin\Debug\Antlr4.Runtime.dll
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\bin\Debug\Antlr4.Runtime.xml
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\JFK_PROJEKT.exe
+C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\JFK_PROJEKT.pdb
