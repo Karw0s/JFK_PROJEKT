@@ -4,7 +4,7 @@ fragment SINGLE_SPACE   : '\u0020'; // ' '
 fragment TABULATION     : '\u0009'; // '\t'
 fragment LINE_FEED      : '\u000A'; // '\n'
 fragment CARRAIGE_RETURN: '\u000D'; // '\r'
-fragment DOT            : '.';
+ DOT            : '.';
 fragment FRACTION       : DOT [0-9]* '1'..'9';
 
 Add           : '+';
@@ -15,67 +15,74 @@ Separator	  : ':';
 WhiteSpace    : ( SINGLE_SPACE | TABULATION )+ -> skip;
 NewLine       : ( CARRAIGE_RETURN | LINE_FEED )+ -> skip;
 
-fragment DZIEN	: '0'[1-9]
-				| [1-2][0-9]
-				| '3'[0-1]
-				;
+Zero_dwaczt : '0'[0-9]
+		| '1'[0-9]
+		| '2'[0-4]
+		;
 
-fragment MIESIAC	: 'STY'
-					| 'LUT'
-					| 'MAR'
-					| 'KWI'
-					| 'MAJ'
-					| 'CZE'
-					| 'LIP'
-					| 'SIE'
-					| 'WRZ'
-					| 'PAZ'
-					| 'LIS'
-					| 'GRU'
-					;
+DZIEN	: '0'[1-9]
+		| [1-2][0-9]
+		| '3'[0-1]
+		;
 
-fragment ROK : [0-9][0-9][0-9][0-9];
+MIESIAC	: 'STY'
+		| 'LUT'
+		| 'MAR'
+		| 'KWI'
+		| 'MAJ'
+		| 'CZE'
+		| 'LIP'
+		| 'SIE'
+		| 'WRZ'
+		| 'PAZ'
+		| 'LIS'
+		| 'GRU'
+		;
 
-fragment GODZINY : '0'[0-9]
-				 | '1'[0-9]
-				 | '2'[0-4]
-				 ;
+ROK : [0-9][0-9][0-9][0-9]; 
 
-fragment MINUTY : [0-5][0-9];
+//TIME	: GODZINY Separator MINUTY Separator SEKUNDY;
 
-fragment SEKUNDY : [0-5][0-9];
-
-Date	: DZIEN '-' MIESIAC '-' ROK;
-
-Timespan	: '0'[0-9]':'[0-5][0-9]':'[0-5][0-9]
-			| '1'[0-9]':'[0-5][0-9]':'[0-5][0-9]
-			| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
-			;
-
-dzien	: DZIEN;
-miesiac : MIESIAC;
-rok		: ROK;
-godziny : GODZINY;
-minuty	: MINUTY;
-sekundy	: SEKUNDY;
+// GODZINY : '0'[0-9]
+// 		| '1'[0-9]
+// 		| '2'[0-4]
+// 		;
 
 
-timespan 	: godziny Separator minuty Separator sekundy;
-date 		: dzien '-' miesiac '-' rok;
-datetime	: date timespan;
+MINUTY 	: [0-5][0-9];
+//SEKUNDY : [0-5][0-9];
 
+//Date	: DZIEN '-' MIESIAC '-' ROK;
 
-operation :'(' operation ')'
-		  | ( date | datetime ) op=Subtract ( date | datetime | operation )
-		  | ( date | datetime | timespan ) 
-			op=( Add | Subtract )
-            ( timespan | operation )
-		  | timespan op=Add (date | datetime | operation)
-          ;
+// Time	: '0'[0-9]':'[0-5][0-9]':'[0-5][0-9]
+// 			| '1'[0-9]':'[0-5][0-9]':'[0-5][0-9]
+// 			| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
+// 			;
 
-expression:
-          | date
+expression: date
 		  | datetime 
 		  | timespan 
 		  | operation
           ;
+
+operation 	: ( date | datetime | timespan ) op=Add ( timespan | operation )
+			| timespan op=Add (date | datetime | operation)
+			| ( date | datetime | timespan ) op=Subtract ( timespan | operation )
+			| ( date | datetime ) op=Subtract ( date | datetime | operation )
+			| '(' operation ')'
+			;
+			
+datetime	: date timespan;
+//date 		: data_test;
+//timespan 	: timespan_test;
+
+date: dzien DOT miesiac DOT rok; //to jest test
+
+timespan: godziny Separator minuty Separator sekundy ;
+
+dzien	: DZIEN | Zero_dwaczt;
+miesiac : MIESIAC;
+rok		: ROK;
+godziny : Zero_dwaczt;
+minuty	: Zero_dwaczt | MINUTY;
+sekundy	: Zero_dwaczt | MINUTY;

@@ -13,6 +13,7 @@ namespace JFK_PROJEKT
 
     class Program
     {
+        public static readonly DateTimeFormatInfo FORMAT = new DateTimeFormatInfo { DateSeparator = "-", TimeSeparator = ":" };
         static void Main(string[] args)
         {
             try
@@ -37,11 +38,17 @@ namespace JFK_PROJEKT
                     return;
 
                 var visitor = new TreeVisitor();
+                visitor.Visit(tree);
                 //Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
 
                 foreach (var line in visitor.dateList)
                 {
-                    Console.WriteLine("{0}-{1}-", line.day, line.month,line.year);
+                    Console.WriteLine("{0}-{1}-{2}", line.day, line.month,line.year);
+                }
+
+                foreach (var line in visitor.timespanList)
+                {
+                    Console.WriteLine("{0}:{1}:{2}", line.hour, line.minute, line.second);
                 }
 
                 //DateCalculatorParser.ExpressionContext chatContext = parser.expression();

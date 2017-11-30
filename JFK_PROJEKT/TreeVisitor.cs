@@ -13,13 +13,14 @@ namespace JFK_PROJEKT
         public List<Date> dateList = new List<Date>();
         public List<DateTime> datetimeList = new List<DateTime>();
 
-        public override object VisitTimespan(DateCalculatorParser.TimespanContext context)
+        public override object VisitTimespan([NotNull]DateCalculatorParser.TimespanContext context)
         {
             DateCalculatorParser.GodzinyContext godzina = context.godziny();
             DateCalculatorParser.MinutyContext minta = context.minuty();
             DateCalculatorParser.SekundyContext sekunda = context.sekundy();
 
-            TimeSpan tmp = new TimeSpan() {
+            TimeSpan tmp = new TimeSpan()
+            {
                 hour = Convert.ToInt32(godzina.GetText()),
                 minute = Convert.ToInt32(minta.GetText()),
                 second = Convert.ToInt32(sekunda.GetText())
@@ -30,13 +31,15 @@ namespace JFK_PROJEKT
             return tmp;
         }
 
-        public override object VisitDate(DateCalculatorParser.DateContext context)
+        public override object VisitDate([NotNull]DateCalculatorParser.DateContext context)
         {
+
             DateCalculatorParser.DzienContext dzien = context.dzien();
             DateCalculatorParser.MiesiacContext miesiac = context.miesiac();
             DateCalculatorParser.RokContext rok = context.rok();
 
-            Date tmp = new Date() {
+            Date tmp = new Date()
+            {
                 day = Convert.ToInt32(dzien.GetText()),
                 month = miesiac.GetText(),
                 year = Convert.ToInt32(rok.GetText())
@@ -47,35 +50,36 @@ namespace JFK_PROJEKT
             return tmp;
         }
 
-        public override object VisitDatetime(DateCalculatorParser.DatetimeContext context)
-        {
-            //TODO 
-            return base.VisitDatetime(context);
-        }
-
-        //public override object VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
+        //public override Time VisitDatetime([NotNull]DateCalculatorParser.DatetimeContext context)
         //{
-        //    if (null == context.op) // '(' operation ')'
-        //        return Visit(context.operation());
-        //    if (context.GetChild(1).GetType() == typeof(TimeSpan))
-        //    {
-        //        Func<TimeSpan, TimeSpan, TimeSpan> operand;
-        //        switch (context.op.Type)
-        //        {
-        //            case DateCalculatorParser.Add:
-        //                operand = (a, b) => TimeSpan.dodaj(a, b);
-        //                break;
-        //            case DateCalculatorParser.Subtract:
-        //                operand = (a, b) => TimeSpan.odejmij(a, b);
-        //                break;
-        //            default:
-        //                throw new ArgumentOutOfRangeException();
-        //        }
-
-        //        return operand(Visit(context.GetChild(1)), Visit(context.GetChild(2)));
-        //    }
-        //    return 0;
+        //    //TODO 
+        //    return base.VisitDatetime(context);
         //}
+
+        public override object VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
+        {
+            if (null == context.op) // '(' operation ')'
+                return Visit(context.operation());
+
+            if (context.GetChild(1).GetType() == typeof(TimeSpan) && context.GetChild(2).GetType() == typeof(TimeSpan))
+            {
+                Func<TimeSpan, TimeSpan, TimeSpan> operand;
+                switch (context.op.Type)
+                {
+                    case DateCalculatorParser.Add:
+                        operand = (a, b) => TimeSpan.dodaj(a, b);
+                        break;
+                    case DateCalculatorParser.Subtract:
+                        operand = (a, b) => TimeSpan.odejmij(a, b);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+                return operand((TimeSpan)Visit(context.GetChild(1)), (TimeSpan)Visit(context.GetChild(2)));
+
+            }
+            return base.VisitOperation(context);
+        }
 
     }
 }

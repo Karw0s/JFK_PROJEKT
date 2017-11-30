@@ -66,6 +66,7 @@
     <Compile Include="Time.cs" />
     <Compile Include="TimeSpan.cs" />
     <Compile Include="TreeEvaluationVisitor.cs" />
+    <Compile Include="TreeListener.cs" />
     <Compile Include="TreeVisitor.cs" />
   </ItemGroup>
   <ItemGroup>

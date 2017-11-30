@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace JFK_PROJEKT
 {
-    public class  Time
+    class TreeListener
     {
-        
-
     }
 }

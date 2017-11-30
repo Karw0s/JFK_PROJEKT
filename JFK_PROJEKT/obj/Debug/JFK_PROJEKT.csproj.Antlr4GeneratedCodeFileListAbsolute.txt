@@ -1,6 +1,6 @@
-C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorLexer.cs
-C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorParser.cs
-C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorListener.cs
-C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorBaseListener.cs
-C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorVisitor.cs
-C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorBaseVisitor.cs
+C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorLexer.cs
+C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorParser.cs
+C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorListener.cs
+C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorBaseListener.cs
+C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorVisitor.cs
+C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\obj\Debug\DateCalculatorBaseVisitor.cs
