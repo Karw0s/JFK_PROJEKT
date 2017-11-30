@@ -151,8 +151,50 @@ public class DateCalculatorParser extends Parser {
 	}
 
 	public static class OperationContext extends ParserRuleContext {
+		public OperationContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_operation; }
+	 
+		public OperationContext() { }
+		public void copyFrom(OperationContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class TimespanAddTimespanContext extends OperationContext {
 		public Token op;
+		public List<TimespanContext> timespan() {
+			return getRuleContexts(TimespanContext.class);
+		}
+		public TimespanContext timespan(int i) {
+			return getRuleContext(TimespanContext.class,i);
+		}
 		public TerminalNode Add() { return getToken(DateCalculatorParser.Add, 0); }
+		public OperationContext operation() {
+			return getRuleContext(OperationContext.class,0);
+		}
+		public TimespanAddTimespanContext(OperationContext ctx) { copyFrom(ctx); }
+	}
+	public static class TimespanAddDateContext extends OperationContext {
+		public Token op;
+		public TimespanContext timespan() {
+			return getRuleContext(TimespanContext.class,0);
+		}
+		public TerminalNode Add() { return getToken(DateCalculatorParser.Add, 0); }
+		public DateContext date() {
+			return getRuleContext(DateContext.class,0);
+		}
+		public DatetimeContext datetime() {
+			return getRuleContext(DatetimeContext.class,0);
+		}
+		public OperationContext operation() {
+			return getRuleContext(OperationContext.class,0);
+		}
+		public TimespanAddDateContext(OperationContext ctx) { copyFrom(ctx); }
+	}
+	public static class DateSubDateContext extends OperationContext {
+		public Token op;
+		public TerminalNode Subtract() { return getToken(DateCalculatorParser.Subtract, 0); }
 		public List<DateContext> date() {
 			return getRuleContexts(DateContext.class);
 		}
@@ -165,33 +207,78 @@ public class DateCalculatorParser extends Parser {
 		public DatetimeContext datetime(int i) {
 			return getRuleContext(DatetimeContext.class,i);
 		}
+		public OperationContext operation() {
+			return getRuleContext(OperationContext.class,0);
+		}
+		public DateSubDateContext(OperationContext ctx) { copyFrom(ctx); }
+	}
+	public static class DateSubTimespanContext extends OperationContext {
+		public Token op;
+		public TerminalNode Subtract() { return getToken(DateCalculatorParser.Subtract, 0); }
+		public DateContext date() {
+			return getRuleContext(DateContext.class,0);
+		}
+		public DatetimeContext datetime() {
+			return getRuleContext(DatetimeContext.class,0);
+		}
+		public TimespanContext timespan() {
+			return getRuleContext(TimespanContext.class,0);
+		}
+		public OperationContext operation() {
+			return getRuleContext(OperationContext.class,0);
+		}
+		public DateSubTimespanContext(OperationContext ctx) { copyFrom(ctx); }
+	}
+	public static class OperContext extends OperationContext {
+		public OperationContext operation() {
+			return getRuleContext(OperationContext.class,0);
+		}
+		public OperContext(OperationContext ctx) { copyFrom(ctx); }
+	}
+	public static class DateAddTiemspanContext extends OperationContext {
+		public Token op;
+		public TerminalNode Add() { return getToken(DateCalculatorParser.Add, 0); }
+		public DateContext date() {
+			return getRuleContext(DateContext.class,0);
+		}
+		public DatetimeContext datetime() {
+			return getRuleContext(DatetimeContext.class,0);
+		}
+		public TimespanContext timespan() {
+			return getRuleContext(TimespanContext.class,0);
+		}
+		public OperationContext operation() {
+			return getRuleContext(OperationContext.class,0);
+		}
+		public DateAddTiemspanContext(OperationContext ctx) { copyFrom(ctx); }
+	}
+	public static class TimespanSubTimespanContext extends OperationContext {
+		public Token op;
 		public List<TimespanContext> timespan() {
 			return getRuleContexts(TimespanContext.class);
 		}
 		public TimespanContext timespan(int i) {
 			return getRuleContext(TimespanContext.class,i);
 		}
+		public TerminalNode Subtract() { return getToken(DateCalculatorParser.Subtract, 0); }
 		public OperationContext operation() {
 			return getRuleContext(OperationContext.class,0);
 		}
-		public TerminalNode Subtract() { return getToken(DateCalculatorParser.Subtract, 0); }
-		public OperationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_operation; }
+		public TimespanSubTimespanContext(OperationContext ctx) { copyFrom(ctx); }
 	}
 
 	public final OperationContext operation() throws RecognitionException {
 		OperationContext _localctx = new OperationContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_operation);
 		try {
-			setState(69);
+			setState(79);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
+				_localctx = new DateAddTiemspanContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(31);
+				setState(30);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 				case 1:
@@ -206,27 +293,21 @@ public class DateCalculatorParser extends Parser {
 					datetime();
 					}
 					break;
-				case 3:
-					{
-					setState(30);
-					timespan();
-					}
-					break;
 				}
-				setState(33);
-				((OperationContext)_localctx).op = match(Add);
-				setState(36);
+				setState(32);
+				((DateAddTiemspanContext)_localctx).op = match(Add);
+				setState(35);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 				case 1:
 					{
-					setState(34);
+					setState(33);
 					timespan();
 					}
 					break;
 				case 2:
 					{
-					setState(35);
+					setState(34);
 					operation();
 					}
 					break;
@@ -234,30 +315,25 @@ public class DateCalculatorParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new TimespanAddTimespanContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(38);
+				setState(37);
 				timespan();
-				setState(39);
-				((OperationContext)_localctx).op = match(Add);
-				setState(43);
+				setState(38);
+				((TimespanAddTimespanContext)_localctx).op = match(Add);
+				setState(41);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 				case 1:
 					{
-					setState(40);
-					date();
+					setState(39);
+					timespan();
 					}
 					break;
 				case 2:
 					{
-					setState(41);
-					datetime();
-					}
-					break;
-				case 3:
-					{
-					setState(42);
+					setState(40);
 					operation();
 					}
 					break;
@@ -265,8 +341,13 @@ public class DateCalculatorParser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new TimespanAddDateContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
+				setState(43);
+				timespan();
+				setState(44);
+				((TimespanAddDateContext)_localctx).op = match(Add);
 				setState(48);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
@@ -285,24 +366,6 @@ public class DateCalculatorParser extends Parser {
 				case 3:
 					{
 					setState(47);
-					timespan();
-					}
-					break;
-				}
-				setState(50);
-				((OperationContext)_localctx).op = match(Subtract);
-				setState(53);
-				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-				case 1:
-					{
-					setState(51);
-					timespan();
-					}
-					break;
-				case 2:
-					{
-					setState(52);
 					operation();
 					}
 					break;
@@ -310,42 +373,63 @@ public class DateCalculatorParser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new DateSubTimespanContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
+				setState(52);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+				case 1:
+					{
+					setState(50);
+					date();
+					}
+					break;
+				case 2:
+					{
+					setState(51);
+					datetime();
+					}
+					break;
+				}
+				setState(54);
+				((DateSubTimespanContext)_localctx).op = match(Subtract);
 				setState(57);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 				case 1:
 					{
 					setState(55);
-					date();
+					timespan();
 					}
 					break;
 				case 2:
 					{
 					setState(56);
-					datetime();
+					operation();
 					}
 					break;
 				}
+				}
+				break;
+			case 5:
+				_localctx = new TimespanSubTimespanContext(_localctx);
+				enterOuterAlt(_localctx, 5);
+				{
 				setState(59);
-				((OperationContext)_localctx).op = match(Subtract);
+				timespan();
+				setState(60);
+				((TimespanSubTimespanContext)_localctx).op = match(Subtract);
 				setState(63);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 				case 1:
 					{
-					setState(60);
-					date();
+					setState(61);
+					timespan();
 					}
 					break;
 				case 2:
-					{
-					setState(61);
-					datetime();
-					}
-					break;
-				case 3:
 					{
 					setState(62);
 					operation();
@@ -354,14 +438,61 @@ public class DateCalculatorParser extends Parser {
 				}
 				}
 				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
+			case 6:
+				_localctx = new DateSubDateContext(_localctx);
+				enterOuterAlt(_localctx, 6);
 				{
-				setState(65);
-				match(T__0);
-				setState(66);
-				operation();
 				setState(67);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+				case 1:
+					{
+					setState(65);
+					date();
+					}
+					break;
+				case 2:
+					{
+					setState(66);
+					datetime();
+					}
+					break;
+				}
+				setState(69);
+				((DateSubDateContext)_localctx).op = match(Subtract);
+				setState(73);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+				case 1:
+					{
+					setState(70);
+					date();
+					}
+					break;
+				case 2:
+					{
+					setState(71);
+					datetime();
+					}
+					break;
+				case 3:
+					{
+					setState(72);
+					operation();
+					}
+					break;
+				}
+				}
+				break;
+			case 7:
+				_localctx = new OperContext(_localctx);
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(75);
+				match(T__0);
+				setState(76);
+				operation();
+				setState(77);
 				match(T__1);
 				}
 				break;
@@ -397,9 +528,9 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(71);
+			setState(81);
 			date();
-			setState(72);
+			setState(82);
 			timespan();
 			}
 		}
@@ -440,15 +571,15 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(84);
 			dzien();
-			setState(75);
+			setState(85);
 			match(DOT);
-			setState(76);
+			setState(86);
 			miesiac();
-			setState(77);
+			setState(87);
 			match(DOT);
-			setState(78);
+			setState(88);
 			rok();
 			}
 		}
@@ -489,15 +620,15 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(80);
+			setState(90);
 			godziny();
-			setState(81);
+			setState(91);
 			match(Separator);
-			setState(82);
+			setState(92);
 			minuty();
-			setState(83);
+			setState(93);
 			match(Separator);
-			setState(84);
+			setState(94);
 			sekundy();
 			}
 		}
@@ -528,7 +659,7 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(86);
+			setState(96);
 			_la = _input.LA(1);
 			if ( !(_la==Zero_dwaczt || _la==DZIEN) ) {
 			_errHandler.recoverInline(this);
@@ -565,7 +696,7 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(88);
+			setState(98);
 			match(MIESIAC);
 			}
 		}
@@ -594,7 +725,7 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
+			setState(100);
 			match(ROK);
 			}
 		}
@@ -623,7 +754,7 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(92);
+			setState(102);
 			match(Zero_dwaczt);
 			}
 		}
@@ -654,7 +785,7 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(94);
+			setState(104);
 			_la = _input.LA(1);
 			if ( !(_la==Zero_dwaczt || _la==MINUTY) ) {
 			_errHandler.recoverInline(this);
@@ -693,7 +824,7 @@ public class DateCalculatorParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(96);
+			setState(106);
 			_la = _input.LA(1);
 			if ( !(_la==Zero_dwaczt || _la==MINUTY) ) {
 			_errHandler.recoverInline(this);
@@ -717,31 +848,34 @@ public class DateCalculatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20e\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20o\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
-		"\f\t\f\3\2\3\2\3\2\3\2\5\2\35\n\2\3\3\3\3\3\3\5\3\"\n\3\3\3\3\3\3\3\5"+
-		"\3\'\n\3\3\3\3\3\3\3\3\3\3\3\5\3.\n\3\3\3\3\3\3\3\5\3\63\n\3\3\3\3\3\3"+
-		"\3\5\38\n\3\3\3\3\3\5\3<\n\3\3\3\3\3\3\3\3\3\5\3B\n\3\3\3\3\3\3\3\3\3"+
-		"\5\3H\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6"+
-		"\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2\4\6\b\n"+
-		"\f\16\20\22\24\26\2\4\3\2\f\r\4\2\f\f\20\20\2k\2\34\3\2\2\2\4G\3\2\2\2"+
-		"\6I\3\2\2\2\bL\3\2\2\2\nR\3\2\2\2\fX\3\2\2\2\16Z\3\2\2\2\20\\\3\2\2\2"+
-		"\22^\3\2\2\2\24`\3\2\2\2\26b\3\2\2\2\30\35\5\b\5\2\31\35\5\6\4\2\32\35"+
-		"\5\n\6\2\33\35\5\4\3\2\34\30\3\2\2\2\34\31\3\2\2\2\34\32\3\2\2\2\34\33"+
-		"\3\2\2\2\35\3\3\2\2\2\36\"\5\b\5\2\37\"\5\6\4\2 \"\5\n\6\2!\36\3\2\2\2"+
-		"!\37\3\2\2\2! \3\2\2\2\"#\3\2\2\2#&\7\6\2\2$\'\5\n\6\2%\'\5\4\3\2&$\3"+
-		"\2\2\2&%\3\2\2\2\'H\3\2\2\2()\5\n\6\2)-\7\6\2\2*.\5\b\5\2+.\5\6\4\2,."+
-		"\5\4\3\2-*\3\2\2\2-+\3\2\2\2-,\3\2\2\2.H\3\2\2\2/\63\5\b\5\2\60\63\5\6"+
-		"\4\2\61\63\5\n\6\2\62/\3\2\2\2\62\60\3\2\2\2\62\61\3\2\2\2\63\64\3\2\2"+
-		"\2\64\67\7\7\2\2\658\5\n\6\2\668\5\4\3\2\67\65\3\2\2\2\67\66\3\2\2\28"+
-		"H\3\2\2\29<\5\b\5\2:<\5\6\4\2;9\3\2\2\2;:\3\2\2\2<=\3\2\2\2=A\7\7\2\2"+
-		">B\5\b\5\2?B\5\6\4\2@B\5\4\3\2A>\3\2\2\2A?\3\2\2\2A@\3\2\2\2BH\3\2\2\2"+
-		"CD\7\3\2\2DE\5\4\3\2EF\7\4\2\2FH\3\2\2\2G!\3\2\2\2G(\3\2\2\2G\62\3\2\2"+
-		"\2G;\3\2\2\2GC\3\2\2\2H\5\3\2\2\2IJ\5\b\5\2JK\5\n\6\2K\7\3\2\2\2LM\5\f"+
-		"\7\2MN\7\5\2\2NO\5\16\b\2OP\7\5\2\2PQ\5\20\t\2Q\t\3\2\2\2RS\5\22\n\2S"+
-		"T\7\t\2\2TU\5\24\13\2UV\7\t\2\2VW\5\26\f\2W\13\3\2\2\2XY\t\2\2\2Y\r\3"+
-		"\2\2\2Z[\7\16\2\2[\17\3\2\2\2\\]\7\17\2\2]\21\3\2\2\2^_\7\f\2\2_\23\3"+
-		"\2\2\2`a\t\3\2\2a\25\3\2\2\2bc\t\3\2\2c\27\3\2\2\2\13\34!&-\62\67;AG";
+		"\f\t\f\3\2\3\2\3\2\3\2\5\2\35\n\2\3\3\3\3\5\3!\n\3\3\3\3\3\3\3\5\3&\n"+
+		"\3\3\3\3\3\3\3\3\3\5\3,\n\3\3\3\3\3\3\3\3\3\3\3\5\3\63\n\3\3\3\3\3\5\3"+
+		"\67\n\3\3\3\3\3\3\3\5\3<\n\3\3\3\3\3\3\3\3\3\5\3B\n\3\3\3\3\3\5\3F\n\3"+
+		"\3\3\3\3\3\3\3\3\5\3L\n\3\3\3\3\3\3\3\3\3\5\3R\n\3\3\4\3\4\3\4\3\5\3\5"+
+		"\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3"+
+		"\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2\4\6\b\n\f\16\20\22\24\26\2\4\3\2\f\r"+
+		"\4\2\f\f\20\20\2w\2\34\3\2\2\2\4Q\3\2\2\2\6S\3\2\2\2\bV\3\2\2\2\n\\\3"+
+		"\2\2\2\fb\3\2\2\2\16d\3\2\2\2\20f\3\2\2\2\22h\3\2\2\2\24j\3\2\2\2\26l"+
+		"\3\2\2\2\30\35\5\b\5\2\31\35\5\6\4\2\32\35\5\n\6\2\33\35\5\4\3\2\34\30"+
+		"\3\2\2\2\34\31\3\2\2\2\34\32\3\2\2\2\34\33\3\2\2\2\35\3\3\2\2\2\36!\5"+
+		"\b\5\2\37!\5\6\4\2 \36\3\2\2\2 \37\3\2\2\2!\"\3\2\2\2\"%\7\6\2\2#&\5\n"+
+		"\6\2$&\5\4\3\2%#\3\2\2\2%$\3\2\2\2&R\3\2\2\2\'(\5\n\6\2(+\7\6\2\2),\5"+
+		"\n\6\2*,\5\4\3\2+)\3\2\2\2+*\3\2\2\2,R\3\2\2\2-.\5\n\6\2.\62\7\6\2\2/"+
+		"\63\5\b\5\2\60\63\5\6\4\2\61\63\5\4\3\2\62/\3\2\2\2\62\60\3\2\2\2\62\61"+
+		"\3\2\2\2\63R\3\2\2\2\64\67\5\b\5\2\65\67\5\6\4\2\66\64\3\2\2\2\66\65\3"+
+		"\2\2\2\678\3\2\2\28;\7\7\2\29<\5\n\6\2:<\5\4\3\2;9\3\2\2\2;:\3\2\2\2<"+
+		"R\3\2\2\2=>\5\n\6\2>A\7\7\2\2?B\5\n\6\2@B\5\4\3\2A?\3\2\2\2A@\3\2\2\2"+
+		"BR\3\2\2\2CF\5\b\5\2DF\5\6\4\2EC\3\2\2\2ED\3\2\2\2FG\3\2\2\2GK\7\7\2\2"+
+		"HL\5\b\5\2IL\5\6\4\2JL\5\4\3\2KH\3\2\2\2KI\3\2\2\2KJ\3\2\2\2LR\3\2\2\2"+
+		"MN\7\3\2\2NO\5\4\3\2OP\7\4\2\2PR\3\2\2\2Q \3\2\2\2Q\'\3\2\2\2Q-\3\2\2"+
+		"\2Q\66\3\2\2\2Q=\3\2\2\2QE\3\2\2\2QM\3\2\2\2R\5\3\2\2\2ST\5\b\5\2TU\5"+
+		"\n\6\2U\7\3\2\2\2VW\5\f\7\2WX\7\5\2\2XY\5\16\b\2YZ\7\5\2\2Z[\5\20\t\2"+
+		"[\t\3\2\2\2\\]\5\22\n\2]^\7\t\2\2^_\5\24\13\2_`\7\t\2\2`a\5\26\f\2a\13"+
+		"\3\2\2\2bc\t\2\2\2c\r\3\2\2\2de\7\16\2\2e\17\3\2\2\2fg\7\17\2\2g\21\3"+
+		"\2\2\2hi\7\f\2\2i\23\3\2\2\2jk\t\3\2\2k\25\3\2\2\2lm\t\3\2\2m\27\3\2\2"+
+		"\2\r\34 %+\62\66;AEKQ";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

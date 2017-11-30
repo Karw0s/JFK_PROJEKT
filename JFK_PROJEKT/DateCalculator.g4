@@ -59,17 +59,21 @@ MINUTY 	: [0-5][0-9];
 // 			| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
 // 			;
 
-expression: date
-		  | datetime 
-		  | timespan 
-		  | operation
-          ;
+expression	: //expression Add expression			
+			//| expression Subtract expression   
+			 date								
+			| datetime							
+			| timespan							
+			| operation							
+			;
 
-operation 	: ( date | datetime | timespan ) op=Add ( timespan | operation )
-			| timespan op=Add (date | datetime | operation)
-			| ( date | datetime | timespan ) op=Subtract ( timespan | operation )
-			| ( date | datetime ) op=Subtract ( date | datetime | operation )
-			| '(' operation ')'
+operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTiemspan
+			| timespan op=Add ( timespan | operation )								# timespanAddTimespan
+			| timespan op=Add (date | datetime | operation)							# timespanAddDate
+			| ( date | datetime  ) op=Subtract ( timespan | operation )				# dateSubTimespan
+			| timespan op=Subtract ( timespan | operation )							# timespanSubTimespan
+			| ( date | datetime ) op=Subtract ( date | datetime | operation )		# dateSubDate
+			| '(' operation ')'														# oper
 			;
 			
 datetime	: date timespan;

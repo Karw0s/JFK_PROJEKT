@@ -38,8 +38,8 @@ namespace JFK_PROJEKT
                     return;
 
                 var visitor = new TreeVisitor();
-                visitor.Visit(tree);
-                //Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
+                //visitor.Visit(tree);
+                Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
 
                 foreach (var line in visitor.dateList)
                 {
