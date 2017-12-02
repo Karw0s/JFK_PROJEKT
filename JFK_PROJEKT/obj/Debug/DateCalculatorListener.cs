@@ -189,6 +189,17 @@ public interface IDateCalculatorListener : IParseTreeListener {
 	void ExitDzien([NotNull] DateCalculatorParser.DzienContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

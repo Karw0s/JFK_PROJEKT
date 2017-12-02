@@ -15,6 +15,7 @@ namespace JFK_PROJEKT
 
         public override Time VisitTimespan([NotNull]DateCalculatorParser.TimespanContext context)
         {
+            DateCalculatorParser.Liczba_dniContext liczba_dni = context.liczba_dni();
             DateCalculatorParser.GodzinyContext godzina = context.godziny();
             DateCalculatorParser.MinutyContext minta = context.minuty();
             DateCalculatorParser.SekundyContext sekunda = context.sekundy();
@@ -25,20 +26,10 @@ namespace JFK_PROJEKT
                 Convert.ToInt32(sekunda.GetText())
                 );
 
-            System.DateTime datetim = new System.DateTime();
-
-            TimeSpan tmp = new TimeSpan()
-            {
-                hour = Convert.ToInt32(godzina.GetText()),
-                minute = Convert.ToInt32(minta.GetText()),
-                second = Convert.ToInt32(sekunda.GetText())
-            };
-
-            timespanList.Add(tmp);
-
             Time nowy = new Time();
 
             nowy.timespan = new System.TimeSpan(
+                Convert.ToInt32(liczba_dni.GetText()),  //dodane
                 Convert.ToInt32(godzina.GetText()),
                 Convert.ToInt32(minta.GetText()),
                 Convert.ToInt32(sekunda.GetText())

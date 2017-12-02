@@ -131,6 +131,13 @@ public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitDzien([NotNull] DateCalculatorParser.DzienContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

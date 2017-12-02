@@ -50,6 +50,8 @@ ROK : [0-9][0-9][0-9][0-9];
 
 
 MINUTY 	: [0-5][0-9];
+
+LICZBA_DNI : [0-9]+;
 //SEKUNDY : [0-5][0-9];
 
 //Date	: DZIEN '-' MIESIAC '-' ROK;
@@ -76,15 +78,12 @@ operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTi
 			| '(' operation ')'														# oper
 			;
 			
-datetime	: date timespan;
-//date 		: data_test;
-//timespan 	: timespan_test;
-
+datetime	: date godziny Separator minuty Separator sekundy;
 date: dzien DOT miesiac DOT rok; //to jest test
-
-timespan: godziny Separator minuty Separator sekundy ;
+timespan: liczba_dni DOT godziny Separator minuty Separator sekundy ;
 
 dzien	: DZIEN | Zero_dwaczt;
+liczba_dni : LICZBA_DNI | dzien | MINUTY | ROK;
 miesiac : MIESIAC;
 rok		: ROK;
 godziny : Zero_dwaczt;

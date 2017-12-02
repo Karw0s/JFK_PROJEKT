@@ -41,15 +41,15 @@ namespace JFK_PROJEKT
                 //visitor.Visit(tree);
                 Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
 
-                foreach (var line in visitor.dateList)
-                {
-                    Console.WriteLine("{0}-{1}-{2}", line.day, line.month,line.year);
-                }
+                //foreach (var line in visitor.dateList)
+                //{
+                //    Console.WriteLine("{0}-{1}-{2}", line.day, line.month,line.year);
+                //}
 
-                foreach (var line in visitor.timespanList)
-                {
-                    Console.WriteLine("{0}:{1}:{2}", line.hour, line.minute, line.second);
-                }
+                //foreach (var line in visitor.timespanList)
+                //{
+                //    Console.WriteLine("{0}:{1}:{2}", line.hour, line.minute, line.second);
+                //}
 
                 //DateCalculatorParser.ExpressionContext chatContext = parser.expression();
 

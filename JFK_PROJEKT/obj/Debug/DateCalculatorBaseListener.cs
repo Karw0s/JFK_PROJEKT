@@ -219,6 +219,19 @@ public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	public virtual void ExitDzien([NotNull] DateCalculatorParser.DzienContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

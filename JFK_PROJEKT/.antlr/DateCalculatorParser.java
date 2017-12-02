@@ -17,7 +17,7 @@ public class DateCalculatorParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, DOT=3, Add=4, Subtract=5, Slash=6, Separator=7, WhiteSpace=8, 
-		NewLine=9, Zero_dwaczt=10, DZIEN=11, MIESIAC=12, ROK=13, MINUTY=14;
+		NewLine=9, Zero_dwaczt=10, DZIEN=11, MIESIAC=12, ROK=13, MINUTY=14, LICZBA_DNI=15;
 	public static final int
 		RULE_expression = 0, RULE_operation = 1, RULE_datetime = 2, RULE_date = 3, 
 		RULE_timespan = 4, RULE_dzien = 5, RULE_miesiac = 6, RULE_rok = 7, RULE_godziny = 8, 
@@ -32,7 +32,7 @@ public class DateCalculatorParser extends Parser {
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, "DOT", "Add", "Subtract", "Slash", "Separator", "WhiteSpace", 
-		"NewLine", "Zero_dwaczt", "DZIEN", "MIESIAC", "ROK", "MINUTY"
+		"NewLine", "Zero_dwaczt", "DZIEN", "MIESIAC", "ROK", "MINUTY", "LICZBA_DNI"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -848,7 +848,7 @@ public class DateCalculatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20o\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\21o\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
 		"\f\t\f\3\2\3\2\3\2\3\2\5\2\35\n\2\3\3\3\3\5\3!\n\3\3\3\3\3\3\3\5\3&\n"+
 		"\3\3\3\3\3\3\3\3\3\5\3,\n\3\3\3\3\3\3\3\3\3\3\3\5\3\63\n\3\3\3\3\3\5\3"+

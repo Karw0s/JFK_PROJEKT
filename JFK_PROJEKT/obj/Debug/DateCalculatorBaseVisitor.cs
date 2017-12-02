@@ -185,6 +185,17 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	public virtual Result VisitDzien([NotNull] DateCalculatorParser.DzienContext context) { return VisitChildren(context); }
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context) { return VisitChildren(context); }
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
