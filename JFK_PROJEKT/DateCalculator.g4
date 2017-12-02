@@ -69,7 +69,7 @@ expression	: //expression Add expression
 			| operation							
 			;
 
-operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTiemspan
+operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTimespan
 			| timespan op=Add ( timespan | operation )								# timespanAddTimespan
 			| timespan op=Add (date | datetime | operation)							# timespanAddDate
 			| ( date | datetime  ) op=Subtract ( timespan | operation )				# dateSubTimespan

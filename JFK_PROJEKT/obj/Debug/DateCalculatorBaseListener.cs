@@ -111,19 +111,19 @@ public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	public virtual void ExitOper([NotNull] DateCalculatorParser.OperContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>dateAddTiemspan</c>
+	/// Enter a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDateAddTiemspan([NotNull] DateCalculatorParser.DateAddTiemspanContext context) { }
+	public virtual void EnterDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>dateAddTiemspan</c>
+	/// Exit a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDateAddTiemspan([NotNull] DateCalculatorParser.DateAddTiemspanContext context) { }
+	public virtual void ExitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>timespanSubTimespan</c>

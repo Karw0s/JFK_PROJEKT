@@ -20,9 +20,5 @@ namespace JFK_PROJEKT
                 return datetime.ToString();
         }
 
-        //dodać gettery i settery
-        
-
-
     }
 }

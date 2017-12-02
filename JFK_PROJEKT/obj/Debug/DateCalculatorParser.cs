@@ -331,7 +331,7 @@ public partial class DateCalculatorParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class DateAddTiemspanContext : OperationContext {
+	public partial class DateAddTimespanContext : OperationContext {
 		public IToken op;
 		public ITerminalNode Add() { return GetToken(DateCalculatorParser.Add, 0); }
 		public DateContext date() {
@@ -346,18 +346,18 @@ public partial class DateCalculatorParser : Parser {
 		public OperationContext operation() {
 			return GetRuleContext<OperationContext>(0);
 		}
-		public DateAddTiemspanContext(OperationContext context) { CopyFrom(context); }
+		public DateAddTimespanContext(OperationContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
-			if (typedListener != null) typedListener.EnterDateAddTiemspan(this);
+			if (typedListener != null) typedListener.EnterDateAddTimespan(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
-			if (typedListener != null) typedListener.ExitDateAddTiemspan(this);
+			if (typedListener != null) typedListener.ExitDateAddTimespan(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IDateCalculatorVisitor<TResult> typedVisitor = visitor as IDateCalculatorVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDateAddTiemspan(this);
+			if (typedVisitor != null) return typedVisitor.VisitDateAddTimespan(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -398,7 +398,7 @@ public partial class DateCalculatorParser : Parser {
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,10,_ctx) ) {
 			case 1:
-				_localctx = new DateAddTiemspanContext(_localctx);
+				_localctx = new DateAddTimespanContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
 				State = 32;
@@ -416,7 +416,7 @@ public partial class DateCalculatorParser : Parser {
 					}
 					break;
 				}
-				State = 34; ((DateAddTiemspanContext)_localctx).op = Match(Add);
+				State = 34; ((DateAddTimespanContext)_localctx).op = Match(Add);
 				State = 37;
 				_errHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(_input,2,_ctx) ) {

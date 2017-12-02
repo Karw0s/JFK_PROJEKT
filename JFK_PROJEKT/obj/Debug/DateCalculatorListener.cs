@@ -97,17 +97,17 @@ public interface IDateCalculatorListener : IParseTreeListener {
 	void ExitOper([NotNull] DateCalculatorParser.OperContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>dateAddTiemspan</c>
+	/// Enter a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDateAddTiemspan([NotNull] DateCalculatorParser.DateAddTiemspanContext context);
+	void EnterDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>dateAddTiemspan</c>
+	/// Exit a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDateAddTiemspan([NotNull] DateCalculatorParser.DateAddTiemspanContext context);
+	void ExitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>timespanSubTimespan</c>

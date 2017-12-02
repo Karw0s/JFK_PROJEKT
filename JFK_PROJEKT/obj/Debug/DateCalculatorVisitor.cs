@@ -73,12 +73,12 @@ public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitOper([NotNull] DateCalculatorParser.OperContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>dateAddTiemspan</c>
+	/// Visit a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDateAddTiemspan([NotNull] DateCalculatorParser.DateAddTiemspanContext context);
+	Result VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>timespanSubTimespan</c>
