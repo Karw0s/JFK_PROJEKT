@@ -35,7 +35,7 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IDateCalculatorVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>aaa</c>
+	/// Visit a parse tree produced by the <c>timespanOpTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -44,10 +44,10 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAaa([NotNull] DateCalculatorParser.AaaContext context) { return VisitChildren(context); }
+	public virtual Result VisitTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>AddDate</c>
+	/// Visit a parse tree produced by the <c>timespanAddDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -56,10 +56,10 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAddDate([NotNull] DateCalculatorParser.AddDateContext context) { return VisitChildren(context); }
+	public virtual Result VisitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>SubTimeSpan</c>
+	/// Visit a parse tree produced by the <c>dateSubDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -68,10 +68,10 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitSubTimeSpan([NotNull] DateCalculatorParser.SubTimeSpanContext context) { return VisitChildren(context); }
+	public virtual Result VisitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>AddTimeSpan</c>
+	/// Visit a parse tree produced by the <c>dateSubTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -80,10 +80,10 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAddTimeSpan([NotNull] DateCalculatorParser.AddTimeSpanContext context) { return VisitChildren(context); }
+	public virtual Result VisitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>dddd</c>
+	/// Visit a parse tree produced by the <c>oper</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -92,10 +92,10 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitDddd([NotNull] DateCalculatorParser.DdddContext context) { return VisitChildren(context); }
+	public virtual Result VisitOper([NotNull] DateCalculatorParser.OperContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>cccccccc</c>
+	/// Visit a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -104,19 +104,7 @@ public partial class DateCalculatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitCccccccc([NotNull] DateCalculatorParser.CcccccccContext context) { return VisitChildren(context); }
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>SubDate</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitSubDate([NotNull] DateCalculatorParser.SubDateContext context) { return VisitChildren(context); }
+	public virtual Result VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.expression"/>.

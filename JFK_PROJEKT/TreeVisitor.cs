@@ -103,103 +103,6 @@ namespace JFK_PROJEKT
             return wynik;
         }
 
-        //public override Time VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context)
-        //{
-        //    Time date1 = Visit(context.GetChild(0));
-        //    Time time = Visit(context.GetChild(2));
-
-        //    Time wynik = new Time();
-
-        //    DateTime tmp = date1.datetime.Add(time.timespan);
-        //    //date1.datetime = tmp;
-        //    //date1.isTimeSpan = false;
-        //    wynik.datetime = tmp;
-        //    wynik.isTimeSpan = false;
-
-        //    return wynik;
-        //}
-
-        //public override Time VisitTimespanAddTimespan([NotNull] DateCalculatorParser.TimespanAddTimespanContext context)
-        //{
-        //    Time time1 = Visit(context.GetChild(0));
-        //    Time time2 = Visit(context.GetChild(2));
-
-        //    Time wynik = new Time();
-
-        //    TimeSpan tmp = time1.timespan.Add(time2.timespan);
-        //    //time1.timespan = tmp;
-        //    //time1.isTimeSpan = true;
-
-        //    wynik.timespan = tmp;
-        //    wynik.isTimeSpan = true;
-
-        //    return wynik;
-        //}
-
-        //public override Time VisitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context)
-        //{
-        //    Time time = Visit(context.GetChild(0));
-        //    Time date = Visit(context.GetChild(2));
-
-        //    Time wynik = new Time();
-
-        //    DateTime tmp = date.datetime.Add(time.timespan);
-        //    //date.datetime = tmp;
-        //    //date.isTimeSpan = false;
-        //    wynik.datetime = tmp;
-        //    wynik.isTimeSpan = false;
-
-        //    return wynik;
-        //}
-
-        //public override Time VisitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context)
-        //{
-        //    Time date = Visit(context.GetChild(0));
-        //    Time time = Visit(context.GetChild(2));
-
-        //    Time wynik = new Time();
-
-        //    DateTime tmp = date.datetime.Subtract(time.timespan);
-        //    //date.datetime = tmp;
-        //    //date.isTimeSpan = false;
-
-        //    wynik.datetime = tmp;
-        //    wynik.isTimeSpan = false;
-
-        //    return wynik;
-        //}
-
-        //public override Time VisitTimespanSubTimespan([NotNull] DateCalculatorParser.TimespanSubTimespanContext context)
-        //{
-        //    Time time1 = Visit(context.GetChild(0));
-        //    Time time2 = Visit(context.GetChild(2));
-
-        //    Time wynik = new Time();
-
-        //    TimeSpan tmp = time1.timespan.Subtract(time2.timespan);
-        //    time1.timespan = tmp;
-        //    time1.isTimeSpan = true;
-
-        //    wynik.timespan = tmp;
-        //    wynik.isTimeSpan = true;
-
-        //    return wynik;
-        //}
-
-
-        //public override Time VisitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context)
-        //{
-        //    //TODO naprawic
-        //    Time date1 = Visit(context.GetChild(0));
-        //    Time date2 = Visit(context.GetChild(2));
-
-        //    Time wynik = new Time();
-        //    wynik.timespan = date1.datetime.Subtract(date2.datetime);
-        //    wynik.isTimeSpan = true;
-
-        //    return wynik;
-        //}
-
         public override Time VisitDatetime([NotNull]DateCalculatorParser.DatetimeContext context)
         {
             //TODO 
@@ -270,6 +173,111 @@ namespace JFK_PROJEKT
 
             return wynik;
         }
+
+        public override Time VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context)
+        {
+            Time date1 = Visit(context.GetChild(0));
+            Time time = Visit(context.GetChild(2));
+
+            Time wynik = new Time();
+
+            DateTime tmp = date1.datetime.Add(time.timespan);
+            //date1.datetime = tmp;
+            //date1.isTimeSpan = false;
+            wynik.datetime = tmp;
+            wynik.isTimeSpan = false;
+
+            return wynik;
+        }
+
+        public override Time VisitTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context)
+        {
+            Time time1 = Visit(context.GetChild(0));
+            Time time2 = Visit(context.GetChild(2));
+
+            Time wynik = new Time();
+
+            switch (context.op.Type)
+            {
+                case DateCalculatorParser.Add:
+                    wynik.timespan = time1.timespan.Add(time2.timespan);
+                    break;
+                case DateCalculatorParser.Subtract:
+                    wynik.timespan = time1.timespan.Subtract(time2.timespan);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            wynik.isTimeSpan = true;
+
+            return wynik;
+        }
+
+        public override Time VisitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context)
+        {
+            Time time = Visit(context.GetChild(0));
+            Time date = Visit(context.GetChild(2));
+
+            Time wynik = new Time();
+
+            DateTime tmp = date.datetime.Add(time.timespan);
+            //date.datetime = tmp;
+            //date.isTimeSpan = false;
+            wynik.datetime = tmp;
+            wynik.isTimeSpan = false;
+
+            return wynik;
+        }
+
+        public override Time VisitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context)
+        {
+            Time date = Visit(context.GetChild(0));
+            Time time = Visit(context.GetChild(2));
+
+            Time wynik = new Time();
+
+            DateTime tmp = date.datetime.Subtract(time.timespan);
+            //date.datetime = tmp;
+            //date.isTimeSpan = false;
+
+            wynik.datetime = tmp;
+            wynik.isTimeSpan = false;
+
+            return wynik;
+        }
+
+        public override Time VisitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context)
+        {
+            //TODO naprawic
+            Time date1 = Visit(context.GetChild(0));
+            Time date2 = Visit(context.GetChild(2));
+
+            Time wynik = new Time();
+            wynik.timespan = date1.datetime.Subtract(date2.datetime);
+            wynik.isTimeSpan = true;
+
+            return wynik;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //public override System.DateTime VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
         //{

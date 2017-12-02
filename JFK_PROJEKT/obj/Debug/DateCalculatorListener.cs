@@ -32,95 +32,82 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IDateCalculatorListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by the <c>aaa</c>
+	/// Enter a parse tree produced by the <c>timespanOpTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAaa([NotNull] DateCalculatorParser.AaaContext context);
+	void EnterTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>aaa</c>
+	/// Exit a parse tree produced by the <c>timespanOpTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAaa([NotNull] DateCalculatorParser.AaaContext context);
+	void ExitTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>AddDate</c>
+	/// Enter a parse tree produced by the <c>timespanAddDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAddDate([NotNull] DateCalculatorParser.AddDateContext context);
+	void EnterTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>AddDate</c>
+	/// Exit a parse tree produced by the <c>timespanAddDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAddDate([NotNull] DateCalculatorParser.AddDateContext context);
+	void ExitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>SubTimeSpan</c>
+	/// Enter a parse tree produced by the <c>dateSubDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSubTimeSpan([NotNull] DateCalculatorParser.SubTimeSpanContext context);
+	void EnterDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>SubTimeSpan</c>
+	/// Exit a parse tree produced by the <c>dateSubDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSubTimeSpan([NotNull] DateCalculatorParser.SubTimeSpanContext context);
+	void ExitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>AddTimeSpan</c>
+	/// Enter a parse tree produced by the <c>dateSubTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAddTimeSpan([NotNull] DateCalculatorParser.AddTimeSpanContext context);
+	void EnterDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>AddTimeSpan</c>
+	/// Exit a parse tree produced by the <c>dateSubTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAddTimeSpan([NotNull] DateCalculatorParser.AddTimeSpanContext context);
+	void ExitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>dddd</c>
+	/// Enter a parse tree produced by the <c>oper</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDddd([NotNull] DateCalculatorParser.DdddContext context);
+	void EnterOper([NotNull] DateCalculatorParser.OperContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>dddd</c>
+	/// Exit a parse tree produced by the <c>oper</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDddd([NotNull] DateCalculatorParser.DdddContext context);
+	void ExitOper([NotNull] DateCalculatorParser.OperContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>cccccccc</c>
+	/// Enter a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCccccccc([NotNull] DateCalculatorParser.CcccccccContext context);
+	void EnterDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>cccccccc</c>
+	/// Exit a parse tree produced by the <c>dateAddTimespan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCccccccc([NotNull] DateCalculatorParser.CcccccccContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by the <c>SubDate</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterSubDate([NotNull] DateCalculatorParser.SubDateContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>SubDate</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitSubDate([NotNull] DateCalculatorParser.SubDateContext context);
+	void ExitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
