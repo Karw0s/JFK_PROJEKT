@@ -8,10 +8,10 @@ namespace JFK_PROJEKT
 {
     public class  Time
     {
-        private DateTime datetime;
-        private TimeSpan timespan;
-        private bool isTimeSpan;
-      
+        public DateTime datetime { get; set; }
+        public TimeSpan timespan { get; set; }
+        public bool isTimeSpan { get; set; }
+
         public override string ToString()
         {
             if (isTimeSpan)
@@ -21,7 +21,7 @@ namespace JFK_PROJEKT
         }
 
         //dodać gettery i settery
-        public TimeSpan Timespan { get; set; }
+        
 
 
     }

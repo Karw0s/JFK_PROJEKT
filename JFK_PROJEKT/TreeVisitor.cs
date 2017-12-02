@@ -20,20 +20,15 @@ namespace JFK_PROJEKT
             DateCalculatorParser.MinutyContext minta = context.minuty();
             DateCalculatorParser.SekundyContext sekunda = context.sekundy();
 
-            System.TimeSpan time = new System.TimeSpan(
-                Convert.ToInt32(godzina.GetText()),
-                Convert.ToInt32(minta.GetText()),
-                Convert.ToInt32(sekunda.GetText())
-                );
-
             Time nowy = new Time();
 
-            nowy.Timespan = new System.TimeSpan(
+            nowy.timespan = new System.TimeSpan(
                 Convert.ToInt32(liczba_dni.GetText()),  //dodane
                 Convert.ToInt32(godzina.GetText()),
                 Convert.ToInt32(minta.GetText()),
                 Convert.ToInt32(sekunda.GetText())
                 );
+            nowy.isTimeSpan = true;
             //return datetim.Add(time);
             return nowy;
         }
@@ -120,8 +115,8 @@ namespace JFK_PROJEKT
             Time date1 = Visit(context.GetChild(0));
             Time date2 = Visit(context.GetChild(2));
 
-            System.TimeSpan tmp = date1.Timespan.Add(date2.Timespan);
-            date1.Timespan = tmp;
+            System.TimeSpan tmp = date1.timespan.Add(date2.timespan);
+            date1.timespan = tmp;
 
 
             return date1;
