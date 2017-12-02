@@ -8,18 +8,21 @@ namespace JFK_PROJEKT
 {
     public class  Time
     {
-        private DateTime _datetime;
-        private TimeSpan _timespan;
-        private bool _isTimeSpan;
+        private DateTime datetime;
+        private TimeSpan timespan;
+        private bool isTimeSpan;
       
         public override string ToString()
         {
-            if (_isTimeSpan)
-                return _timespan.ToString();
+            if (isTimeSpan)
+                return timespan.ToString();
             else
-                return _datetime.ToString();
+                return datetime.ToString();
         }
 
         //dodać gettery i settery
+        public TimeSpan Timespan { get; set; }
+
+
     }
 }

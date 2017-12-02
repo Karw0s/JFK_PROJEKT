@@ -28,7 +28,7 @@ namespace JFK_PROJEKT
 
             Time nowy = new Time();
 
-            nowy.timespan = new System.TimeSpan(
+            nowy.Timespan = new System.TimeSpan(
                 Convert.ToInt32(liczba_dni.GetText()),  //dodane
                 Convert.ToInt32(godzina.GetText()),
                 Convert.ToInt32(minta.GetText()),
@@ -120,8 +120,8 @@ namespace JFK_PROJEKT
             Time date1 = Visit(context.GetChild(0));
             Time date2 = Visit(context.GetChild(2));
 
-            System.TimeSpan tmp = date1.timespan.Add(date2.timespan);
-            date1.timespan = tmp;
+            System.TimeSpan tmp = date1.Timespan.Add(date2.Timespan);
+            date1.Timespan = tmp;
 
 
             return date1;

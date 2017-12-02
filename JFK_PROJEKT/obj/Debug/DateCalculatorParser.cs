@@ -1066,6 +1066,7 @@ public partial class DateCalculatorParser : Parser {
 
 	public partial class MinutyContext : ParserRuleContext {
 		public ITerminalNode Zero_dwaczt() { return GetToken(DateCalculatorParser.Zero_dwaczt, 0); }
+		public ITerminalNode DZIEN() { return GetToken(DateCalculatorParser.DZIEN, 0); }
 		public ITerminalNode MINUTY() { return GetToken(DateCalculatorParser.MINUTY, 0); }
 		public MinutyContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -1097,7 +1098,7 @@ public partial class DateCalculatorParser : Parser {
 			{
 			State = 118;
 			_la = _input.La(1);
-			if ( !(_la==Zero_dwaczt || _la==MINUTY) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Zero_dwaczt) | (1L << DZIEN) | (1L << MINUTY))) != 0)) ) {
 			_errHandler.RecoverInline(this);
 			} else {
 				if (_input.La(1) == TokenConstants.Eof) {
@@ -1122,6 +1123,7 @@ public partial class DateCalculatorParser : Parser {
 
 	public partial class SekundyContext : ParserRuleContext {
 		public ITerminalNode Zero_dwaczt() { return GetToken(DateCalculatorParser.Zero_dwaczt, 0); }
+		public ITerminalNode DZIEN() { return GetToken(DateCalculatorParser.DZIEN, 0); }
 		public ITerminalNode MINUTY() { return GetToken(DateCalculatorParser.MINUTY, 0); }
 		public SekundyContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -1153,7 +1155,7 @@ public partial class DateCalculatorParser : Parser {
 			{
 			State = 120;
 			_la = _input.La(1);
-			if ( !(_la==Zero_dwaczt || _la==MINUTY) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Zero_dwaczt) | (1L << DZIEN) | (1L << MINUTY))) != 0)) ) {
 			_errHandler.RecoverInline(this);
 			} else {
 				if (_input.La(1) == TokenConstants.Eof) {
@@ -1189,7 +1191,7 @@ public partial class DateCalculatorParser : Parser {
 		"\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\a\x3\a\x3\b\x3\b\x3\b\x3"+
 		"\b\x5\bq\n\b\x3\t\x3\t\x3\n\x3\n\x3\v\x3\v\x3\f\x3\f\x3\r\x3\r\x3\r\x2"+
 		"\x2\x2\xE\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x12\x2\x14\x2"+
-		"\x16\x2\x18\x2\x2\x4\x3\x2\f\r\x4\x2\f\f\x10\x10\x87\x2\x1E\x3\x2\x2\x2"+
+		"\x16\x2\x18\x2\x2\x4\x3\x2\f\r\x4\x2\f\r\x10\x10\x87\x2\x1E\x3\x2\x2\x2"+
 		"\x4S\x3\x2\x2\x2\x6U\x3\x2\x2\x2\b\\\x3\x2\x2\x2\n\x62\x3\x2\x2\x2\fj"+
 		"\x3\x2\x2\x2\xEp\x3\x2\x2\x2\x10r\x3\x2\x2\x2\x12t\x3\x2\x2\x2\x14v\x3"+
 		"\x2\x2\x2\x16x\x3\x2\x2\x2\x18z\x3\x2\x2\x2\x1A\x1F\x5\b\x5\x2\x1B\x1F"+

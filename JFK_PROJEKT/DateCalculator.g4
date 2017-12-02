@@ -87,5 +87,5 @@ liczba_dni : LICZBA_DNI | dzien | MINUTY | ROK;
 miesiac : MIESIAC;
 rok		: ROK;
 godziny : Zero_dwaczt;
-minuty	: Zero_dwaczt | MINUTY;
-sekundy	: Zero_dwaczt | MINUTY;
+minuty	: Zero_dwaczt | DZIEN | MINUTY;
+sekundy	: Zero_dwaczt | DZIEN | MINUTY;
