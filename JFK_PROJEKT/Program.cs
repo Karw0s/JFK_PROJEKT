@@ -40,7 +40,7 @@ namespace JFK_PROJEKT
                 var visitor = new TreeVisitor();
                 //visitor.Visit(tree);
                 Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
-
+                Console.WriteLine("Koniec!");
                 //foreach (var line in visitor.dateList)
                 //{
                 //    Console.WriteLine("{0}-{1}-{2}", line.day, line.month,line.year);

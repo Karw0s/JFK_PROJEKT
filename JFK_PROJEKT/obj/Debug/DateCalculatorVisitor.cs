@@ -33,60 +33,60 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>timespanAddTimespan</c>
+	/// Visit a parse tree produced by the <c>aaa</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitTimespanAddTimespan([NotNull] DateCalculatorParser.TimespanAddTimespanContext context);
+	Result VisitAaa([NotNull] DateCalculatorParser.AaaContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>timespanAddDate</c>
+	/// Visit a parse tree produced by the <c>AddDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context);
+	Result VisitAddDate([NotNull] DateCalculatorParser.AddDateContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>dateSubDate</c>
+	/// Visit a parse tree produced by the <c>SubTimeSpan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context);
+	Result VisitSubTimeSpan([NotNull] DateCalculatorParser.SubTimeSpanContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>dateSubTimespan</c>
+	/// Visit a parse tree produced by the <c>AddTimeSpan</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context);
+	Result VisitAddTimeSpan([NotNull] DateCalculatorParser.AddTimeSpanContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>oper</c>
+	/// Visit a parse tree produced by the <c>dddd</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitOper([NotNull] DateCalculatorParser.OperContext context);
+	Result VisitDddd([NotNull] DateCalculatorParser.DdddContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>dateAddTimespan</c>
+	/// Visit a parse tree produced by the <c>cccccccc</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
+	Result VisitCccccccc([NotNull] DateCalculatorParser.CcccccccContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>timespanSubTimespan</c>
+	/// Visit a parse tree produced by the <c>SubDate</c>
 	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitTimespanSubTimespan([NotNull] DateCalculatorParser.TimespanSubTimespanContext context);
+	Result VisitSubDate([NotNull] DateCalculatorParser.SubDateContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
