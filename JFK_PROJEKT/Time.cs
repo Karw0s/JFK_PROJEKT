@@ -8,7 +8,14 @@ namespace JFK_PROJEKT
 {
     public class  Time
     {
-        
+        public System.DateTime datetim;
+        public System.TimeSpan timespan;
 
+        public override string ToString()
+        {
+            return timespan.ToString();
+        }
+
+        
     }
 }
