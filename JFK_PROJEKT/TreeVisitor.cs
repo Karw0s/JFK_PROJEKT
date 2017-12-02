@@ -22,12 +22,24 @@ namespace JFK_PROJEKT
 
             Time nowy = new Time();
 
-            nowy.timespan = new System.TimeSpan(
+            if (liczba_dni==null)
+            {
+                nowy.timespan = new System.TimeSpan(
+                Convert.ToInt32(godzina.GetText()),
+                Convert.ToInt32(minuta.GetText()),
+                Convert.ToInt32(sekunda.GetText())
+                );
+            }
+            else
+            {
+                nowy.timespan = new System.TimeSpan(
                 Convert.ToInt32(liczba_dni.GetText()),  //dodane
                 Convert.ToInt32(godzina.GetText()),
                 Convert.ToInt32(minuta.GetText()),
                 Convert.ToInt32(sekunda.GetText())
                 );
+            }
+            
             nowy.isTimeSpan = true;
             //return datetim.Add(time);
             return nowy;

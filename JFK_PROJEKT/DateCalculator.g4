@@ -4,9 +4,8 @@ fragment SINGLE_SPACE   : '\u0020'; // ' '
 fragment TABULATION     : '\u0009'; // '\t'
 fragment LINE_FEED      : '\u000A'; // '\n'
 fragment CARRAIGE_RETURN: '\u000D'; // '\r'
- DOT            : '.';
-fragment FRACTION       : DOT [0-9]* '1'..'9';
 
+DOT           : '.';
 Add           : '+';
 Subtract      : '-';
 Slash		  : '/';
@@ -80,7 +79,7 @@ operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTi
 			
 datetime	: date godziny Separator minuty Separator sekundy;
 date: dzien DOT miesiac DOT rok; //to jest test
-timespan: liczba_dni DOT godziny Separator minuty Separator sekundy ;
+timespan: (liczba_dni DOT)? godziny Separator minuty Separator sekundy ;
 
 dzien	: DZIEN | Zero_dwaczt;
 liczba_dni : LICZBA_DNI | dzien | MINUTY | ROK;
