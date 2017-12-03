@@ -13,6 +13,7 @@ namespace JFK_PROJEKT
 
     class Program
     {
+        public static readonly DateTimeFormatInfo FORMAT = new DateTimeFormatInfo { DateSeparator = "-", TimeSeparator = ":" };
         static void Main(string[] args)
         {
             try
@@ -30,27 +31,15 @@ namespace JFK_PROJEKT
                 var errors = parser.NumberOfSyntaxErrors;
 
                 Console.WriteLine($"Number of syntax errors: {errors}");
-                //Console.WriteLine(tree.ToStringTree()); // Token IDs
                 Console.WriteLine(tree.ToStringTree(parser));
 
                 if (0 < errors)
                     return;
 
-                var visitor = new TreeEvaluationVisitor();
+                var visitor = new TreeVisitor();
                 Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
-
-
-                //DateCalculatorParser.ExpressionContext chatContext = parser.expression();
-
-
-
-                //SpeakVisitor visitor = new SpeakVisitor();
-                //visitor.Visit(chatContext);
-
-                //foreach (var line in visitor.Lines)
-                //{
-                //    Console.WriteLine("{0} has said \"{1}\"", line.Person, line.Text);
-                //}
+                Console.WriteLine("Koniec!");
+        
             }
             catch (Exception ex)
             {

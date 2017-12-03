@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
+// Generated from C:\Users\User\Source\Repos\JFK_PROJEKTost\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -33,11 +33,93 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
+	/// Visit a parse tree produced by the <c>timespanOpTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>timespanAddDate</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>dateSubDate</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>dateSubTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>dateAddTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExpression([NotNull] DateCalculatorParser.ExpressionContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitOperation([NotNull] DateCalculatorParser.OperationContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.date"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDate([NotNull] DateCalculatorParser.DateContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTimespan([NotNull] DateCalculatorParser.TimespanContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDzien([NotNull] DateCalculatorParser.DzienContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
@@ -54,38 +136,24 @@ public interface IDateCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitRok([NotNull] DateCalculatorParser.RokContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.godziny"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDatetime([NotNull] DateCalculatorParser.DatetimeContext context);
+	Result VisitGodziny([NotNull] DateCalculatorParser.GodzinyContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.minuty"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitTimespan([NotNull] DateCalculatorParser.TimespanContext context);
+	Result VisitMinuty([NotNull] DateCalculatorParser.MinutyContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.date"/>.
+	/// Visit a parse tree produced by <see cref="DateCalculatorParser.sekundy"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDate([NotNull] DateCalculatorParser.DateContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitOperation([NotNull] DateCalculatorParser.OperationContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] DateCalculatorParser.ExpressionContext context);
+	Result VisitSekundy([NotNull] DateCalculatorParser.SekundyContext context);
 }
 } // namespace JFK_PROJEKT

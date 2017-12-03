@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Karwos\Documents\Visual Studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
+// Generated from C:\Users\User\Source\Repos\JFK_PROJEKTost\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -36,6 +36,146 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	/// <summary>
+	/// Enter a parse tree produced by the <c>timespanOpTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>timespanOpTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>timespanAddDate</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>timespanAddDate</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>dateSubDate</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>dateSubDate</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>dateSubTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>dateSubTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>dateAddTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>dateAddTimespan</c>
+	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExpression([NotNull] DateCalculatorParser.ExpressionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExpression([NotNull] DateCalculatorParser.ExpressionContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterOperation([NotNull] DateCalculatorParser.OperationContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitOperation([NotNull] DateCalculatorParser.OperationContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDatetime([NotNull] DateCalculatorParser.DatetimeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDatetime([NotNull] DateCalculatorParser.DatetimeContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.date"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDate([NotNull] DateCalculatorParser.DateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.date"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDate([NotNull] DateCalculatorParser.DateContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterTimespan([NotNull] DateCalculatorParser.TimespanContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitTimespan([NotNull] DateCalculatorParser.TimespanContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.dzien"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -47,6 +187,19 @@ public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDzien([NotNull] DateCalculatorParser.DzienContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.liczba_dni"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLiczba_dni([NotNull] DateCalculatorParser.Liczba_dniContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="DateCalculatorParser.miesiac"/>.
@@ -75,69 +228,43 @@ public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	public virtual void ExitRok([NotNull] DateCalculatorParser.RokContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.godziny"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDatetime([NotNull] DateCalculatorParser.DatetimeContext context) { }
+	public virtual void EnterGodziny([NotNull] DateCalculatorParser.GodzinyContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.datetime"/>.
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.godziny"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDatetime([NotNull] DateCalculatorParser.DatetimeContext context) { }
+	public virtual void ExitGodziny([NotNull] DateCalculatorParser.GodzinyContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.minuty"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterTimespan([NotNull] DateCalculatorParser.TimespanContext context) { }
+	public virtual void EnterMinuty([NotNull] DateCalculatorParser.MinutyContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.timespan"/>.
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.minuty"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitTimespan([NotNull] DateCalculatorParser.TimespanContext context) { }
+	public virtual void ExitMinuty([NotNull] DateCalculatorParser.MinutyContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.date"/>.
+	/// Enter a parse tree produced by <see cref="DateCalculatorParser.sekundy"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDate([NotNull] DateCalculatorParser.DateContext context) { }
+	public virtual void EnterSekundy([NotNull] DateCalculatorParser.SekundyContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.date"/>.
+	/// Exit a parse tree produced by <see cref="DateCalculatorParser.sekundy"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDate([NotNull] DateCalculatorParser.DateContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterOperation([NotNull] DateCalculatorParser.OperationContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.operation"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitOperation([NotNull] DateCalculatorParser.OperationContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterExpression([NotNull] DateCalculatorParser.ExpressionContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="DateCalculatorParser.expression"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitExpression([NotNull] DateCalculatorParser.ExpressionContext context) { }
+	public virtual void ExitSekundy([NotNull] DateCalculatorParser.SekundyContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

@@ -13,24 +13,24 @@ namespace JFK_PROJEKT
     {
         public override Time VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
         {
-            if (null == context.op)
-                return Visit(context.operation());
+            //if (null == context.op)
+            //    return Visit(context.operation());
 
-            Func<Time, Time, Time> operand;
-            switch (context.op.Type)
-            {
-                case DateCalculatorParser.Add:
-                    operand = (a, b) => Time.dodaj( a, b );
-                    break;
-                case DateCalculatorParser.Subtract:
-                    operand = (a, b) => Time.odejmij( a, b );
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            //Func<Time, Time, Time> operand;
+            //switch (context.op.Type)
+            //{
+            //    //case DateCalculatorParser.Add:
+            //    //    operand = (a, b) => Time.dodaj( a, b );
+            //    //    break;
+            //    //case DateCalculatorParser.Subtract:
+            //    //    operand = (a, b) => Time.odejmij( a, b );
+            //    //    break;
+            //    default:
+            //        throw new ArgumentOutOfRangeException();
+            //}
 
-            return operand(Visit(context.GetChild(1)), Visit(context.GetChild(2)));
-           // return base.VisitOperation(context);
+            //return operand(Visit(context.GetChild(1)), Visit(context.GetChild(2)));
+            return base.VisitOperation(context);
         }
     }
 }

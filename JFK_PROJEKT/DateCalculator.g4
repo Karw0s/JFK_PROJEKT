@@ -4,64 +4,69 @@ fragment SINGLE_SPACE   : '\u0020'; // ' '
 fragment TABULATION     : '\u0009'; // '\t'
 fragment LINE_FEED      : '\u000A'; // '\n'
 fragment CARRAIGE_RETURN: '\u000D'; // '\r'
-fragment DOT            : '.';
-fragment FRACTION       : DOT [0-9]* '1'..'9';
 
+Dot           : '.';
 Add           : '+';
 Subtract      : '-';
 Slash		  : '/';
+Separator	  : ':';
 
 WhiteSpace    : ( SINGLE_SPACE | TABULATION )+ -> skip;
 NewLine       : ( CARRAIGE_RETURN | LINE_FEED )+ -> skip;
 
-fragment DZIEN	: '0'[1-9]
-				| [1-2][0-9]
-				| '3'[0-1]
-				;
-
-fragment MIESIAC	: 'STY'
-					| 'LUT'
-					| 'MAR'
-					| 'KWI'
-					| 'MAJ'
-					| 'CZE'
-					| 'LIP'
-					| 'SIE'
-					| 'WRZ'
-					| 'PAZ'
-					| 'LIS'
-					| 'GRU'
-					;
-
-fragment ROK : [0-9][0-9][0-9][0-9];
-				
-Date	: DZIEN '-' MIESIAC '-' ROK;
-
-Timespan	: '0'[0-9]':'[0-5][0-9]':'[0-5][0-9]
-		| '1'[0-9]':'[0-5][0-9]':'[0-5][0-9]
-		| '2'[0-4]':'[0-5][0-9]':'[0-5][0-9]
+Zero_dwaczt : '0'[0-9]
+		| '1'[0-9]
+		| '2'[0-4]
 		;
 
-dzien	: DZIEN;
-miesiac : MIESIAC;
-rok		: ROK;
+DZIEN	: '0'[1-9]
+		| [1-2][0-9]
+		| '3'[0-1]
+		;
 
-datetime	: Date Timespan;
-timespan 	: Timespan;
-date 		: dzien Slash miesiac Slash rok;
+MIESIAC	: 'STY'
+		| 'LUT'
+		| 'MAR'
+		| 'KWI'
+		| 'MAJ'
+		| 'CZE'
+		| 'LIP'
+		| 'SIE'
+		| 'WRZ'
+		| 'PAZ'
+		| 'LIS'
+		| 'GRU'
+		;
+
+ROK : [0-9][0-9][0-9][0-9]; 
+
+MINUTY 	: [0-5][0-9];
+
+LICZBA_DNI : [0-9]+;
 
 
-operation :'(' operation ')'
-		  | ( date | datetime ) op=Subtract ( date | datetime | operation )
-		  | ( date | datetime | timespan ) 
-			op=( Add | Subtract )
-            ( timespan | operation )
-		  | timespan op=Add (date | datetime | operation)
-          ;
+expression	:
+			  date								
+			| datetime							
+			| timespan							
+			| operation							
+			;
 
-expression:
-          | date
-		  | datetime 
-		  | timespan 
-		  | operation
-          ;
+operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTimespan
+			| timespan op=( Add| Subtract ) ( timespan | operation )				# timespanOpTimespan
+			| timespan op=Add (date | datetime | operation)							# timespanAddDate
+			| ( date | datetime  ) op=Subtract ( timespan | operation )				# dateSubTimespan
+			| ( date | datetime ) op=Subtract ( date | datetime | operation )		# dateSubDate														
+			;
+			
+datetime	: date godziny ( Separator | Dot ) minuty ( Separator | Dot ) sekundy;
+date		: dzien (Dot | Slash) miesiac (Dot|Slash) rok;
+timespan	: ( liczba_dni Dot )? godziny ( Separator | Dot) minuty ( Separator | Dot ) sekundy;
+
+dzien		: DZIEN | Zero_dwaczt;
+liczba_dni	: LICZBA_DNI | dzien | MINUTY | ROK;
+miesiac 	: MIESIAC;
+rok			: ROK;
+godziny 	: Zero_dwaczt;
+minuty		: Zero_dwaczt | DZIEN | MINUTY;
+sekundy		: Zero_dwaczt | DZIEN | MINUTY;

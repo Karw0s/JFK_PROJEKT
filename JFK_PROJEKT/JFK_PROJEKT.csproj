@@ -50,7 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Date.cs" />
+    <Compile Include="obj\Debug\DateCalculatorBaseListener.cs" />
+    <Compile Include="obj\Debug\DateCalculatorBaseVisitor.cs" />
+    <Compile Include="obj\Debug\DateCalculatorLexer.cs" />
+    <Compile Include="obj\Debug\DateCalculatorListener.cs" />
+    <Compile Include="obj\Debug\DateCalculatorParser.cs" />
+    <Compile Include="obj\Debug\DateCalculatorVisitor.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Time.cs" />
@@ -65,9 +73,25 @@
       <Listener>True</Listener>
       <Visitor>True</Visitor>
     </Antlr4>
+    <AntlrTokens Include="obj\Debug\DateCalculator.tokens">
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>JFK_PROJEKT.obj.Debug</CustomToolNamespace>
+    </AntlrTokens>
+    <AntlrTokens Include="obj\Debug\DateCalculatorLexer.tokens">
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>JFK_PROJEKT.obj.Debug</CustomToolNamespace>
+    </AntlrTokens>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\JFK_PROJEKT.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="obj\Debug\JFK_PROJEKT.csproj.Antlr4GeneratedCodeFileListAbsolute.txt" />
+    <Content Include="obj\Debug\JFK_PROJEKT.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
