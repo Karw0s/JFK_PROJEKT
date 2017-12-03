@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Date.cs" />
     <Compile Include="obj\Debug\DateCalculatorBaseListener.cs" />
     <Compile Include="obj\Debug\DateCalculatorBaseVisitor.cs" />
     <Compile Include="obj\Debug\DateCalculatorLexer.cs" />

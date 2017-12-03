@@ -56,19 +56,8 @@ operation 	: ( date | datetime ) op=Add ( timespan | operation )					# dateAddTi
 			| timespan op=( Add| Subtract ) ( timespan | operation )				# timespanOpTimespan
 			| timespan op=Add (date | datetime | operation)							# timespanAddDate
 			| ( date | datetime  ) op=Subtract ( timespan | operation )				# dateSubTimespan
-			| ( date | datetime ) op=Subtract ( date | datetime | operation )		# dateSubDate
-			| '(' operation ')'														# oper
+			| ( date | datetime ) op=Subtract ( date | datetime | operation )		# dateSubDate														
 			;
-
-// operation	: operation Add (date | datetime | operation)			#AddDate
-// 			| operation Add (timespan | operation)				#AddTimeSpan
-// 			| operation Subtract ( date | datetime | operation)	#SubDate
-// 			| operation Subtract (timespan | operation)			#SubTimeSpan
-// 			| date								#aaa
-// 			| datetime							#dddd
-// 			| timespan	#cccccccc
-// 			;
-
 			
 datetime	: date godziny ( Separator | Dot ) minuty ( Separator | Dot ) sekundy;
 date		: dzien (Dot | Slash) miesiac (Dot|Slash) rok;

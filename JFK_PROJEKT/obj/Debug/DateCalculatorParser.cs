@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
+// Generated from C:\Users\User\Source\Repos\JFK_PROJEKTost\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -31,8 +31,8 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 [System.CLSCompliant(false)]
 public partial class DateCalculatorParser : Parser {
 	public const int
-		T__0=1, T__1=2, Dot=3, Add=4, Subtract=5, Slash=6, Separator=7, WhiteSpace=8, 
-		NewLine=9, Zero_dwaczt=10, DZIEN=11, MIESIAC=12, ROK=13, MINUTY=14, LICZBA_DNI=15;
+		Dot=1, Add=2, Subtract=3, Slash=4, Separator=5, WhiteSpace=6, NewLine=7, 
+		Zero_dwaczt=8, DZIEN=9, MIESIAC=10, ROK=11, MINUTY=12, LICZBA_DNI=13;
 	public const int
 		RULE_expression = 0, RULE_operation = 1, RULE_datetime = 2, RULE_date = 3, 
 		RULE_timespan = 4, RULE_dzien = 5, RULE_liczba_dni = 6, RULE_miesiac = 7, 
@@ -43,11 +43,11 @@ public partial class DateCalculatorParser : Parser {
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'('", "')'", "'.'", "'+'", "'-'", "'/'", "':'"
+		null, "'.'", "'+'", "'-'", "'/'", "':'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, "Dot", "Add", "Subtract", "Slash", "Separator", "WhiteSpace", 
-		"NewLine", "Zero_dwaczt", "DZIEN", "MIESIAC", "ROK", "MINUTY", "LICZBA_DNI"
+		null, "Dot", "Add", "Subtract", "Slash", "Separator", "WhiteSpace", "NewLine", 
+		"Zero_dwaczt", "DZIEN", "MIESIAC", "ROK", "MINUTY", "LICZBA_DNI"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -313,25 +313,6 @@ public partial class DateCalculatorParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class OperContext : OperationContext {
-		public OperationContext operation() {
-			return GetRuleContext<OperationContext>(0);
-		}
-		public OperContext(OperationContext context) { CopyFrom(context); }
-		public override void EnterRule(IParseTreeListener listener) {
-			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
-			if (typedListener != null) typedListener.EnterOper(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IDateCalculatorListener typedListener = listener as IDateCalculatorListener;
-			if (typedListener != null) typedListener.ExitOper(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IDateCalculatorVisitor<TResult> typedVisitor = visitor as IDateCalculatorVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitOper(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
 	public partial class DateAddTimespanContext : OperationContext {
 		public IToken op;
 		public ITerminalNode Add() { return GetToken(DateCalculatorParser.Add, 0); }
@@ -369,7 +350,7 @@ public partial class DateCalculatorParser : Parser {
 		EnterRule(_localctx, 2, RULE_operation);
 		int _la;
 		try {
-			State = 75;
+			State = 71;
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,9,_ctx) ) {
 			case 1:
@@ -557,16 +538,6 @@ public partial class DateCalculatorParser : Parser {
 				}
 				}
 				break;
-
-			case 6:
-				_localctx = new OperContext(_localctx);
-				EnterOuterAlt(_localctx, 6);
-				{
-				State = 71; Match(T__0);
-				State = 72; operation();
-				State = 73; Match(T__1);
-				}
-				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -629,9 +600,9 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 77; date();
-			State = 78; godziny();
-			State = 79;
+			State = 73; date();
+			State = 74; godziny();
+			State = 75;
 			_la = _input.La(1);
 			if ( !(_la==Dot || _la==Separator) ) {
 			_errHandler.RecoverInline(this);
@@ -643,8 +614,8 @@ public partial class DateCalculatorParser : Parser {
 				_errHandler.ReportMatch(this);
 				Consume();
 			}
-			State = 80; minuty();
-			State = 81;
+			State = 76; minuty();
+			State = 77;
 			_la = _input.La(1);
 			if ( !(_la==Dot || _la==Separator) ) {
 			_errHandler.RecoverInline(this);
@@ -656,7 +627,7 @@ public partial class DateCalculatorParser : Parser {
 				_errHandler.ReportMatch(this);
 				Consume();
 			}
-			State = 82; sekundy();
+			State = 78; sekundy();
 			}
 		}
 		catch (RecognitionException re) {
@@ -716,8 +687,8 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 84; dzien();
-			State = 85;
+			State = 80; dzien();
+			State = 81;
 			_la = _input.La(1);
 			if ( !(_la==Dot || _la==Slash) ) {
 			_errHandler.RecoverInline(this);
@@ -729,8 +700,8 @@ public partial class DateCalculatorParser : Parser {
 				_errHandler.ReportMatch(this);
 				Consume();
 			}
-			State = 86; miesiac();
-			State = 87;
+			State = 82; miesiac();
+			State = 83;
 			_la = _input.La(1);
 			if ( !(_la==Dot || _la==Slash) ) {
 			_errHandler.RecoverInline(this);
@@ -742,7 +713,7 @@ public partial class DateCalculatorParser : Parser {
 				_errHandler.ReportMatch(this);
 				Consume();
 			}
-			State = 88; rok();
+			State = 84; rok();
 			}
 		}
 		catch (RecognitionException re) {
@@ -805,18 +776,18 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 93;
+			State = 89;
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				{
-				State = 90; liczba_dni();
-				State = 91; Match(Dot);
+				State = 86; liczba_dni();
+				State = 87; Match(Dot);
 				}
 				break;
 			}
-			State = 95; godziny();
-			State = 96;
+			State = 91; godziny();
+			State = 92;
 			_la = _input.La(1);
 			if ( !(_la==Dot || _la==Separator) ) {
 			_errHandler.RecoverInline(this);
@@ -828,8 +799,8 @@ public partial class DateCalculatorParser : Parser {
 				_errHandler.ReportMatch(this);
 				Consume();
 			}
-			State = 97; minuty();
-			State = 98;
+			State = 93; minuty();
+			State = 94;
 			_la = _input.La(1);
 			if ( !(_la==Dot || _la==Separator) ) {
 			_errHandler.RecoverInline(this);
@@ -841,7 +812,7 @@ public partial class DateCalculatorParser : Parser {
 				_errHandler.ReportMatch(this);
 				Consume();
 			}
-			State = 99; sekundy();
+			State = 95; sekundy();
 			}
 		}
 		catch (RecognitionException re) {
@@ -886,7 +857,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 101;
+			State = 97;
 			_la = _input.La(1);
 			if ( !(_la==Zero_dwaczt || _la==DZIEN) ) {
 			_errHandler.RecoverInline(this);
@@ -943,32 +914,32 @@ public partial class DateCalculatorParser : Parser {
 		Liczba_dniContext _localctx = new Liczba_dniContext(_ctx, State);
 		EnterRule(_localctx, 12, RULE_liczba_dni);
 		try {
-			State = 107;
+			State = 103;
 			_errHandler.Sync(this);
 			switch (_input.La(1)) {
 			case LICZBA_DNI:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 103; Match(LICZBA_DNI);
+				State = 99; Match(LICZBA_DNI);
 				}
 				break;
 			case Zero_dwaczt:
 			case DZIEN:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 104; dzien();
+				State = 100; dzien();
 				}
 				break;
 			case MINUTY:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 105; Match(MINUTY);
+				State = 101; Match(MINUTY);
 				}
 				break;
 			case ROK:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 106; Match(ROK);
+				State = 102; Match(ROK);
 				}
 				break;
 			default:
@@ -1015,7 +986,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 109; Match(MIESIAC);
+			State = 105; Match(MIESIAC);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1058,7 +1029,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 111; Match(ROK);
+			State = 107; Match(ROK);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1101,7 +1072,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 113; Match(Zero_dwaczt);
+			State = 109; Match(Zero_dwaczt);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1147,7 +1118,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 115;
+			State = 111;
 			_la = _input.La(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Zero_dwaczt) | (1L << DZIEN) | (1L << MINUTY))) != 0)) ) {
 			_errHandler.RecoverInline(this);
@@ -1204,7 +1175,7 @@ public partial class DateCalculatorParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 117;
+			State = 113;
 			_la = _input.La(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Zero_dwaczt) | (1L << DZIEN) | (1L << MINUTY))) != 0)) ) {
 			_errHandler.RecoverInline(this);
@@ -1230,49 +1201,48 @@ public partial class DateCalculatorParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\x11z\x4\x2\t\x2"+
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\xFv\x4\x2\t\x2"+
 		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t"+
 		"\t\x4\n\t\n\x4\v\t\v\x4\f\t\f\x4\r\t\r\x3\x2\x3\x2\x3\x2\x3\x2\x5\x2\x1F"+
 		"\n\x2\x3\x3\x3\x3\x5\x3#\n\x3\x3\x3\x3\x3\x3\x3\x5\x3(\n\x3\x3\x3\x3\x3"+
 		"\x3\x3\x3\x3\x5\x3.\n\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\x35\n\x3"+
 		"\x3\x3\x3\x3\x5\x3\x39\n\x3\x3\x3\x3\x3\x3\x3\x5\x3>\n\x3\x3\x3\x3\x3"+
-		"\x5\x3\x42\n\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3H\n\x3\x3\x3\x3\x3\x3\x3"+
-		"\x3\x3\x5\x3N\n\x3\x3\x4\x3\x4\x3\x4\x3\x4\x3\x4\x3\x4\x3\x4\x3\x5\x3"+
-		"\x5\x3\x5\x3\x5\x3\x5\x3\x5\x3\x6\x3\x6\x3\x6\x5\x6`\n\x6\x3\x6\x3\x6"+
-		"\x3\x6\x3\x6\x3\x6\x3\x6\x3\a\x3\a\x3\b\x3\b\x3\b\x3\b\x5\bn\n\b\x3\t"+
-		"\x3\t\x3\n\x3\n\x3\v\x3\v\x3\f\x3\f\x3\r\x3\r\x3\r\x2\x2\x2\xE\x2\x2\x4"+
-		"\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x12\x2\x14\x2\x16\x2\x18\x2\x2\a"+
-		"\x3\x2\x6\a\x4\x2\x5\x5\t\t\x4\x2\x5\x5\b\b\x3\x2\f\r\x4\x2\f\r\x10\x10"+
-		"\x83\x2\x1E\x3\x2\x2\x2\x4M\x3\x2\x2\x2\x6O\x3\x2\x2\x2\bV\x3\x2\x2\x2"+
-		"\n_\x3\x2\x2\x2\fg\x3\x2\x2\x2\xEm\x3\x2\x2\x2\x10o\x3\x2\x2\x2\x12q\x3"+
-		"\x2\x2\x2\x14s\x3\x2\x2\x2\x16u\x3\x2\x2\x2\x18w\x3\x2\x2\x2\x1A\x1F\x5"+
-		"\b\x5\x2\x1B\x1F\x5\x6\x4\x2\x1C\x1F\x5\n\x6\x2\x1D\x1F\x5\x4\x3\x2\x1E"+
-		"\x1A\x3\x2\x2\x2\x1E\x1B\x3\x2\x2\x2\x1E\x1C\x3\x2\x2\x2\x1E\x1D\x3\x2"+
-		"\x2\x2\x1F\x3\x3\x2\x2\x2 #\x5\b\x5\x2!#\x5\x6\x4\x2\" \x3\x2\x2\x2\""+
-		"!\x3\x2\x2\x2#$\x3\x2\x2\x2$\'\a\x6\x2\x2%(\x5\n\x6\x2&(\x5\x4\x3\x2\'"+
-		"%\x3\x2\x2\x2\'&\x3\x2\x2\x2(N\x3\x2\x2\x2)*\x5\n\x6\x2*-\t\x2\x2\x2+"+
-		".\x5\n\x6\x2,.\x5\x4\x3\x2-+\x3\x2\x2\x2-,\x3\x2\x2\x2.N\x3\x2\x2\x2/"+
-		"\x30\x5\n\x6\x2\x30\x34\a\x6\x2\x2\x31\x35\x5\b\x5\x2\x32\x35\x5\x6\x4"+
-		"\x2\x33\x35\x5\x4\x3\x2\x34\x31\x3\x2\x2\x2\x34\x32\x3\x2\x2\x2\x34\x33"+
-		"\x3\x2\x2\x2\x35N\x3\x2\x2\x2\x36\x39\x5\b\x5\x2\x37\x39\x5\x6\x4\x2\x38"+
-		"\x36\x3\x2\x2\x2\x38\x37\x3\x2\x2\x2\x39:\x3\x2\x2\x2:=\a\a\x2\x2;>\x5"+
-		"\n\x6\x2<>\x5\x4\x3\x2=;\x3\x2\x2\x2=<\x3\x2\x2\x2>N\x3\x2\x2\x2?\x42"+
-		"\x5\b\x5\x2@\x42\x5\x6\x4\x2\x41?\x3\x2\x2\x2\x41@\x3\x2\x2\x2\x42\x43"+
-		"\x3\x2\x2\x2\x43G\a\a\x2\x2\x44H\x5\b\x5\x2\x45H\x5\x6\x4\x2\x46H\x5\x4"+
-		"\x3\x2G\x44\x3\x2\x2\x2G\x45\x3\x2\x2\x2G\x46\x3\x2\x2\x2HN\x3\x2\x2\x2"+
-		"IJ\a\x3\x2\x2JK\x5\x4\x3\x2KL\a\x4\x2\x2LN\x3\x2\x2\x2M\"\x3\x2\x2\x2"+
-		"M)\x3\x2\x2\x2M/\x3\x2\x2\x2M\x38\x3\x2\x2\x2M\x41\x3\x2\x2\x2MI\x3\x2"+
-		"\x2\x2N\x5\x3\x2\x2\x2OP\x5\b\x5\x2PQ\x5\x14\v\x2QR\t\x3\x2\x2RS\x5\x16"+
-		"\f\x2ST\t\x3\x2\x2TU\x5\x18\r\x2U\a\x3\x2\x2\x2VW\x5\f\a\x2WX\t\x4\x2"+
-		"\x2XY\x5\x10\t\x2YZ\t\x4\x2\x2Z[\x5\x12\n\x2[\t\x3\x2\x2\x2\\]\x5\xE\b"+
-		"\x2]^\a\x5\x2\x2^`\x3\x2\x2\x2_\\\x3\x2\x2\x2_`\x3\x2\x2\x2`\x61\x3\x2"+
-		"\x2\x2\x61\x62\x5\x14\v\x2\x62\x63\t\x3\x2\x2\x63\x64\x5\x16\f\x2\x64"+
-		"\x65\t\x3\x2\x2\x65\x66\x5\x18\r\x2\x66\v\x3\x2\x2\x2gh\t\x5\x2\x2h\r"+
-		"\x3\x2\x2\x2in\a\x11\x2\x2jn\x5\f\a\x2kn\a\x10\x2\x2ln\a\xF\x2\x2mi\x3"+
-		"\x2\x2\x2mj\x3\x2\x2\x2mk\x3\x2\x2\x2ml\x3\x2\x2\x2n\xF\x3\x2\x2\x2op"+
-		"\a\xE\x2\x2p\x11\x3\x2\x2\x2qr\a\xF\x2\x2r\x13\x3\x2\x2\x2st\a\f\x2\x2"+
-		"t\x15\x3\x2\x2\x2uv\t\x6\x2\x2v\x17\x3\x2\x2\x2wx\t\x6\x2\x2x\x19\x3\x2"+
-		"\x2\x2\xE\x1E\"\'-\x34\x38=\x41GM_m";
+		"\x5\x3\x42\n\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3H\n\x3\x5\x3J\n\x3\x3\x4"+
+		"\x3\x4\x3\x4\x3\x4\x3\x4\x3\x4\x3\x4\x3\x5\x3\x5\x3\x5\x3\x5\x3\x5\x3"+
+		"\x5\x3\x6\x3\x6\x3\x6\x5\x6\\\n\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6"+
+		"\x3\a\x3\a\x3\b\x3\b\x3\b\x3\b\x5\bj\n\b\x3\t\x3\t\x3\n\x3\n\x3\v\x3\v"+
+		"\x3\f\x3\f\x3\r\x3\r\x3\r\x2\x2\x2\xE\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2"+
+		"\xE\x2\x10\x2\x12\x2\x14\x2\x16\x2\x18\x2\x2\a\x3\x2\x4\x5\x4\x2\x3\x3"+
+		"\a\a\x4\x2\x3\x3\x6\x6\x3\x2\n\v\x4\x2\n\v\xE\xE~\x2\x1E\x3\x2\x2\x2\x4"+
+		"I\x3\x2\x2\x2\x6K\x3\x2\x2\x2\bR\x3\x2\x2\x2\n[\x3\x2\x2\x2\f\x63\x3\x2"+
+		"\x2\x2\xEi\x3\x2\x2\x2\x10k\x3\x2\x2\x2\x12m\x3\x2\x2\x2\x14o\x3\x2\x2"+
+		"\x2\x16q\x3\x2\x2\x2\x18s\x3\x2\x2\x2\x1A\x1F\x5\b\x5\x2\x1B\x1F\x5\x6"+
+		"\x4\x2\x1C\x1F\x5\n\x6\x2\x1D\x1F\x5\x4\x3\x2\x1E\x1A\x3\x2\x2\x2\x1E"+
+		"\x1B\x3\x2\x2\x2\x1E\x1C\x3\x2\x2\x2\x1E\x1D\x3\x2\x2\x2\x1F\x3\x3\x2"+
+		"\x2\x2 #\x5\b\x5\x2!#\x5\x6\x4\x2\" \x3\x2\x2\x2\"!\x3\x2\x2\x2#$\x3\x2"+
+		"\x2\x2$\'\a\x4\x2\x2%(\x5\n\x6\x2&(\x5\x4\x3\x2\'%\x3\x2\x2\x2\'&\x3\x2"+
+		"\x2\x2(J\x3\x2\x2\x2)*\x5\n\x6\x2*-\t\x2\x2\x2+.\x5\n\x6\x2,.\x5\x4\x3"+
+		"\x2-+\x3\x2\x2\x2-,\x3\x2\x2\x2.J\x3\x2\x2\x2/\x30\x5\n\x6\x2\x30\x34"+
+		"\a\x4\x2\x2\x31\x35\x5\b\x5\x2\x32\x35\x5\x6\x4\x2\x33\x35\x5\x4\x3\x2"+
+		"\x34\x31\x3\x2\x2\x2\x34\x32\x3\x2\x2\x2\x34\x33\x3\x2\x2\x2\x35J\x3\x2"+
+		"\x2\x2\x36\x39\x5\b\x5\x2\x37\x39\x5\x6\x4\x2\x38\x36\x3\x2\x2\x2\x38"+
+		"\x37\x3\x2\x2\x2\x39:\x3\x2\x2\x2:=\a\x5\x2\x2;>\x5\n\x6\x2<>\x5\x4\x3"+
+		"\x2=;\x3\x2\x2\x2=<\x3\x2\x2\x2>J\x3\x2\x2\x2?\x42\x5\b\x5\x2@\x42\x5"+
+		"\x6\x4\x2\x41?\x3\x2\x2\x2\x41@\x3\x2\x2\x2\x42\x43\x3\x2\x2\x2\x43G\a"+
+		"\x5\x2\x2\x44H\x5\b\x5\x2\x45H\x5\x6\x4\x2\x46H\x5\x4\x3\x2G\x44\x3\x2"+
+		"\x2\x2G\x45\x3\x2\x2\x2G\x46\x3\x2\x2\x2HJ\x3\x2\x2\x2I\"\x3\x2\x2\x2"+
+		"I)\x3\x2\x2\x2I/\x3\x2\x2\x2I\x38\x3\x2\x2\x2I\x41\x3\x2\x2\x2J\x5\x3"+
+		"\x2\x2\x2KL\x5\b\x5\x2LM\x5\x14\v\x2MN\t\x3\x2\x2NO\x5\x16\f\x2OP\t\x3"+
+		"\x2\x2PQ\x5\x18\r\x2Q\a\x3\x2\x2\x2RS\x5\f\a\x2ST\t\x4\x2\x2TU\x5\x10"+
+		"\t\x2UV\t\x4\x2\x2VW\x5\x12\n\x2W\t\x3\x2\x2\x2XY\x5\xE\b\x2YZ\a\x3\x2"+
+		"\x2Z\\\x3\x2\x2\x2[X\x3\x2\x2\x2[\\\x3\x2\x2\x2\\]\x3\x2\x2\x2]^\x5\x14"+
+		"\v\x2^_\t\x3\x2\x2_`\x5\x16\f\x2`\x61\t\x3\x2\x2\x61\x62\x5\x18\r\x2\x62"+
+		"\v\x3\x2\x2\x2\x63\x64\t\x5\x2\x2\x64\r\x3\x2\x2\x2\x65j\a\xF\x2\x2\x66"+
+		"j\x5\f\a\x2gj\a\xE\x2\x2hj\a\r\x2\x2i\x65\x3\x2\x2\x2i\x66\x3\x2\x2\x2"+
+		"ig\x3\x2\x2\x2ih\x3\x2\x2\x2j\xF\x3\x2\x2\x2kl\a\f\x2\x2l\x11\x3\x2\x2"+
+		"\x2mn\a\r\x2\x2n\x13\x3\x2\x2\x2op\a\n\x2\x2p\x15\x3\x2\x2\x2qr\t\x6\x2"+
+		"\x2r\x17\x3\x2\x2\x2st\t\x6\x2\x2t\x19\x3\x2\x2\x2\xE\x1E\"\'-\x34\x38"+
+		"=\x41GI[i";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

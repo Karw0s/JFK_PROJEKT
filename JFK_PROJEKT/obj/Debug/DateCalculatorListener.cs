@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
+// Generated from C:\Users\User\Source\Repos\JFK_PROJEKTost\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -82,19 +82,6 @@ public interface IDateCalculatorListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by the <c>oper</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterOper([NotNull] DateCalculatorParser.OperContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>oper</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitOper([NotNull] DateCalculatorParser.OperContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>dateAddTimespan</c>

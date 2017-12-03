@@ -7,12 +7,16 @@ using Antlr4.Runtime.Misc;
 
 namespace JFK_PROJEKT
 {
+    /// <summary>
+    /// Klasa przechodząca drzewo i zwracająca wartość węzła do klasy Time
+    /// </summary>
     public class TreeVisitor : DateCalculatorBaseVisitor<Time>
     {
-        public List<TimeSpan> timespanList = new List<TimeSpan>();
-        public List<Date> dateList = new List<Date>();
-        public List<DateTime> datetimeList = new List<DateTime>();
-
+        /// <summary>
+        /// Odpowiada za odwiedzenia węzła z typem Timespan i zwrócenie jego wartości
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitTimespan([NotNull]DateCalculatorParser.TimespanContext context)
         {
             DateCalculatorParser.Liczba_dniContext liczba_dni = context.liczba_dni();
@@ -33,7 +37,7 @@ namespace JFK_PROJEKT
             else
             {
                 nowy.timespan = new System.TimeSpan(
-                Convert.ToInt32(liczba_dni.GetText()),  //dodane
+                Convert.ToInt32(liczba_dni.GetText()), 
                 Convert.ToInt32(godzina.GetText()),
                 Convert.ToInt32(minuta.GetText()),
                 Convert.ToInt32(sekunda.GetText())
@@ -41,10 +45,13 @@ namespace JFK_PROJEKT
             }
             
             nowy.isTimeSpan = true;
-            //return datetim.Add(time);
             return nowy;
         }
-
+        /// <summary>
+        /// Odpowiada za odwiedzenia węzła z typem Date i zwrócenie jego wartości
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitDate([NotNull]DateCalculatorParser.DateContext context)
         {
 
@@ -102,10 +109,13 @@ namespace JFK_PROJEKT
 
             return wynik;
         }
-
+        /// <summary>
+        /// Odpowiada za odwiedzenia węzła z typem Datetime i zwrócenie jego wartości
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitDatetime([NotNull]DateCalculatorParser.DatetimeContext context)
         {
-            //TODO 
             DateCalculatorParser.DateContext date = context.date();
 
             DateCalculatorParser.DzienContext dzien = date.dzien();
@@ -173,7 +183,11 @@ namespace JFK_PROJEKT
 
             return wynik;
         }
-
+        /// <summary>
+        /// Zwraca zsumowana wartosc podrzednych wezlow typu Date i Timespan
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitDateAddTimespan([NotNull] DateCalculatorParser.DateAddTimespanContext context)
         {
             Time date1 = Visit(context.GetChild(0));
@@ -182,14 +196,16 @@ namespace JFK_PROJEKT
             Time wynik = new Time();
 
             DateTime tmp = date1.datetime.Add(time.timespan);
-            //date1.datetime = tmp;
-            //date1.isTimeSpan = false;
             wynik.datetime = tmp;
             wynik.isTimeSpan = false;
 
             return wynik;
         }
-
+        /// <summary>
+        /// Zwraca zsumowana lub odjeta wartosc podrzednych wezlow typu Timespan i Timespan
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitTimespanOpTimespan([NotNull] DateCalculatorParser.TimespanOpTimespanContext context)
         {
             Time time1 = Visit(context.GetChild(0));
@@ -213,7 +229,11 @@ namespace JFK_PROJEKT
 
             return wynik;
         }
-
+        /// <summary>
+        /// Zwraca zsumowana wartosc podrzednych wezlow typu Timespan i Date
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitTimespanAddDate([NotNull] DateCalculatorParser.TimespanAddDateContext context)
         {
             Time time = Visit(context.GetChild(0));
@@ -222,14 +242,16 @@ namespace JFK_PROJEKT
             Time wynik = new Time();
 
             DateTime tmp = date.datetime.Add(time.timespan);
-            //date.datetime = tmp;
-            //date.isTimeSpan = false;
             wynik.datetime = tmp;
             wynik.isTimeSpan = false;
 
             return wynik;
         }
-
+        /// <summary>
+        /// Zwraca odjeta wartosc podrzednych wezlow typu Date i Timespan
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context)
         {
             Time date = Visit(context.GetChild(0));
@@ -238,18 +260,19 @@ namespace JFK_PROJEKT
             Time wynik = new Time();
 
             DateTime tmp = date.datetime.Subtract(time.timespan);
-            //date.datetime = tmp;
-            //date.isTimeSpan = false;
 
             wynik.datetime = tmp;
             wynik.isTimeSpan = false;
 
             return wynik;
         }
-
+        /// <summary>
+        /// Zwraca odjeta wartosc podrzednych wezlow typu Date i Date
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Time VisitDateSubDate([NotNull] DateCalculatorParser.DateSubDateContext context)
         {
-            //TODO naprawic
             Time date1 = Visit(context.GetChild(0));
             Time date2 = Visit(context.GetChild(2));
 
@@ -259,62 +282,6 @@ namespace JFK_PROJEKT
 
             return wynik;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public override System.DateTime VisitOperation([NotNull] DateCalculatorParser.OperationContext context)
-        //{
-        //    if (null == context.op) // '(' operation ')'
-        //        return Visit(context.operation());
-
-
-        //    //Func<System.DateTime, System.TimeSpan, System.DateTime> operand;
-        //    //switch (context.op.Type)
-        //    //{
-        //    //    case DateCalculatorParser.Add:
-        //    //        operand = (a, b) => a + b;
-        //    //        break;
-        //    //    case DateCalculatorParser.Subtract:
-        //    //        operand = (a, b) => a - b;
-        //    //        break;
-        //    //    default:
-        //    //        throw new ArgumentOutOfRangeException();
-        //    //}
-
-
-        //    Func<System.DateTime, System.DateTime, System.TimeSpan> operand;
-        //    switch (context.op.Type)
-        //    {
-        //        case DateCalculatorParser.Subtract:
-        //            operand = (a, b) => a - b;
-        //            break;
-        //        default:
-        //            throw new ArgumentOutOfRangeException();
-        //    }
-
-
-        //    //return  operand(Visit(context.GetChild(1)), Visit(context.GetChild(2)));
-        //    return base.VisitOperation(context);
-
-
-        //}
 
     }
 }

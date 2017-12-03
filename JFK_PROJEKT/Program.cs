@@ -31,37 +31,15 @@ namespace JFK_PROJEKT
                 var errors = parser.NumberOfSyntaxErrors;
 
                 Console.WriteLine($"Number of syntax errors: {errors}");
-                //Console.WriteLine(tree.ToStringTree()); // Token IDs
                 Console.WriteLine(tree.ToStringTree(parser));
 
                 if (0 < errors)
                     return;
 
                 var visitor = new TreeVisitor();
-                //visitor.Visit(tree);
                 Console.WriteLine($"Result = {visitor.Visit(tree).ToString()}");
                 Console.WriteLine("Koniec!");
-                //foreach (var line in visitor.dateList)
-                //{
-                //    Console.WriteLine("{0}-{1}-{2}", line.day, line.month,line.year);
-                //}
-
-                //foreach (var line in visitor.timespanList)
-                //{
-                //    Console.WriteLine("{0}:{1}:{2}", line.hour, line.minute, line.second);
-                //}
-
-                //DateCalculatorParser.ExpressionContext chatContext = parser.expression();
-
-
-
-                //SpeakVisitor visitor = new SpeakVisitor();
-                //visitor.Visit(chatContext);
-
-                //foreach (var line in visitor.Lines)
-                //{
-                //    Console.WriteLine("{0} has said \"{1}\"", line.Person, line.Text);
-                //}
+        
             }
             catch (Exception ex)
             {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Karwos\documents\visual studio 2015\Projects\JFK_PROJEKT\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
+// Generated from C:\Users\User\Source\Repos\JFK_PROJEKTost\JFK_PROJEKT\DateCalculator.g4 by ANTLR 4.6.5-SNAPSHOT
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -94,21 +94,6 @@ public partial class DateCalculatorBaseListener : IDateCalculatorListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDateSubTimespan([NotNull] DateCalculatorParser.DateSubTimespanContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by the <c>oper</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterOper([NotNull] DateCalculatorParser.OperContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>oper</c>
-	/// labeled alternative in <see cref="DateCalculatorParser.operation"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitOper([NotNull] DateCalculatorParser.OperContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>dateAddTimespan</c>
